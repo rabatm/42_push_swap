@@ -5,8 +5,7 @@ GREEN = \033[0;92m
 YELLOW = \033[0;93m
 BLUE = \033[0;94m
 
-NAME = fdf
-MINILIBX = minilibx
+NAME = push_swap
 
 # Dossiers
 SRCDIR = sources
@@ -28,16 +27,14 @@ OBJ = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
 # Règle par défaut
 all: $(NAME)
 
-# Création du dossier obj s'il n'existe pas
-$(shell mkdir -p $(OBJDIR))
-
 # Règle de construction de l'exécutable
-$(NAME): $(LIBFT) $(LIBMINI) $(OBJ)
+$(NAME): $(LIBFT) $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 	@echo "$(BLUE)$(NAME) READY IN BIN FOLDER$(DEF_COLOR)"
 
 # Règle de compilation des fichiers objets
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
+	$(shell mkdir -p $(OBJDIR))
 	$(CC) $(CFLAGS) -c $< -o $@
 	@echo "$(YELLOW)OBJ CREDD$(DEF_COLOR)"
 
@@ -49,7 +46,6 @@ $(LIBFT):
 # Règle de nettoyage des fichiers objets
 clean:
 	$(MAKE) clean -C $(LIBFTDIR)
-	rm $(INCLUDEDIR)/libmlx.a
 	rm -rf $(OBJDIR)
 	@echo "$(BLUE)cleaned!$(DEF_COLOR)"
 

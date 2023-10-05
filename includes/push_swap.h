@@ -5,12 +5,13 @@
 # include <fcntl.h>
 
 
-typedef struct s_stack
+
+typedef	struct s_swap	t_swap;
+typedef struct s_swap
 {
-	int	*a;
-	int	*b;
-	int	size_a;
-	int	size_b;
-}	t_stack;
+	struct s_swap	*prev;
+	int				num;
+	struct s_swap	*next;
+}	t_swap;
 
 #endif
