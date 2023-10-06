@@ -22,10 +22,14 @@ int	main(int argc, char *argv[])
 	if (argc < 2)
 		return (0);
 	stark_a = ft_init_stark(argv);
-	if (ft_check_is_sort(stark_a))
+	if ((ft_check_is_sort(stark_a)) || ft_check_doublons(stark_a))
+	{
 		ft_destroy_lst(stark_a);
-	else
+		ft_printf("finito pipo");
+		return (0);
+	}
 		ft_printf("NO trie CANARD");
-	prtlst(stark_a);
-	return (0);
+		prtlst(stark_a);
+		return (0);
+	
 }

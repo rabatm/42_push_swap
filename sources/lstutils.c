@@ -48,20 +48,16 @@ t_swap *ft_init_stark(char *val[])
 
 void	ft_destroy_lst(t_swap *first_start)
 {
-	t_swap	*current_stark;
-	t_swap	*next_stark;
+    t_swap	*current_stark;
+    t_swap	*next_stark;
 
-	current_stark = first_start;
-	while (current_stark)
-	{
-		if(current_stark->next)
-			next_stark = current_stark->next;
-		else 
-			next_stark = NULL;
-		if (current_stark)
-			free(current_stark);
-		current_stark = next_stark;
-	}
-	current_stark = NULL;
-	next_stark = NULL;
+    if (!first_start)
+        return ;
+    current_stark = first_start;
+    while (current_stark)
+    {
+        next_stark = current_stark->next;
+        free(current_stark);
+        current_stark = next_stark;
+    }
 }
