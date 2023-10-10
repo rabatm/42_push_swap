@@ -34,4 +34,8 @@ OPERATIONS
 t_swap	*ft_sa(t_swap *first_stark);
 t_swap	*ft_sb(t_swap *first_stark);
 t_head	*ft_ss(t_head *first_stark);
+void	ft_pa(t_head *t_stark);
+void	ft_pb(t_head *t_stark);
+void	ft_p(t_swap **p1, t_swap **p2);
+
 #endif
