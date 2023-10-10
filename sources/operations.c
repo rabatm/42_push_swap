@@ -30,7 +30,11 @@ t_swap	*ft_sa(t_swap *sa)
 	return (sa);	
 }
 
-t_swap	*ft_ss(t_swap a, t_swap b)
+t_head	*ft_ss(t_head *t_stark)
 {
-	
+	t_stark->head_a = ft_switchhead(t_stark->head_a); 
+	t_stark->head_b = ft_switchhead(t_stark->head_b);
+	ft_printf("SS\n");
+	return  t_stark;
 }
+

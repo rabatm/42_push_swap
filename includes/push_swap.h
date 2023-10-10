@@ -1,12 +1,15 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+#undef NULL
+#include <stddef.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <fcntl.h>
 # include "./libft/libft.h"
 
 typedef	struct s_swap	t_swap;
+typedef	struct s_head	t_head;
 typedef struct s_swap
 {
 	struct s_swap	*prev;
@@ -30,5 +33,5 @@ OPERATIONS
 */
 t_swap	*ft_sa(t_swap *first_stark);
 t_swap	*ft_sb(t_swap *first_stark);
-t_swap	*ft_ss(t_swap *first_stark);
+t_head	*ft_ss(t_head *first_stark);
 #endif
