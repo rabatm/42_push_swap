@@ -37,5 +37,7 @@ t_head	*ft_ss(t_head *first_stark);
 void	ft_pa(t_head *t_stark);
 void	ft_pb(t_head *t_stark);
 void	ft_p(t_swap **p1, t_swap **p2);
+t_swap	*ft_getlast(t_swap *my_stark);
 
+void	ft_r(t_swap **p1);
 #endif

@@ -180,9 +180,95 @@ void	test_ft_pb(void)
         printf("\033[1;31mFAIL\033[0m\n");
 }
 
+void    test_ft_r(void)
+{
+    t_swap  *stark_a;
+
+    // Test case 1: empty list
+    stark_a = NULL;
+    ft_r(&stark_a);
+    if (stark_a != NULL) {
+        printf("\033[1;31mTest case 1 failed\033[0m\n");
+    }
+    else {
+        printf("\033[1;32mTest case 1 passed\033[0m\n");
+    }
+
+    // Test case 2: list with one element
+    stark_a = malloc(sizeof(t_swap));
+    stark_a->num = 23;
+    stark_a->next = NULL;
+    stark_a->prev = NULL;
+    ft_r(&stark_a);
+    if (stark_a->num != 23 || stark_a->next != NULL || stark_a->prev != NULL) {
+        printf("\033[1;31mTest case 2 failed\033[0m\n");
+    }
+    else {
+        printf("\033[1;32mTest case 2 passed\033[0m\n");
+    }
+
+    // Test case 3: list with two elements
+    stark_a = malloc(sizeof(t_swap));
+    stark_a->num = 23;
+    stark_a->next = malloc(sizeof(t_swap));
+    stark_a->next->num = 42;
+    stark_a->next->next = NULL;
+    stark_a->next->prev = stark_a;
+    stark_a->prev = NULL;
+    ft_r(&stark_a);
+    if (stark_a->num != 42 || stark_a->next->num != 23 || stark_a->prev != NULL || stark_a->next->next != NULL) {
+        printf("\033[1;31mTest case 3 failed\033[0m\n");
+    }
+    else {
+        printf("\033[1;32mTest case 3 passed\033[0m\n");
+    }
+
+    // Test case 4: list with three elements
+    stark_a = malloc(sizeof(t_swap));
+    stark_a->num = 23;
+    stark_a->next = malloc(sizeof(t_swap));
+    stark_a->next->num = 42;
+    stark_a->next->next = malloc(sizeof(t_swap));
+    stark_a->next->next->num = 17;
+    stark_a->next->next->next = NULL;
+    stark_a->next->next->prev = stark_a->next;
+    stark_a->next->prev = stark_a;
+    stark_a->prev = NULL;
+    ft_r(&stark_a);
+    if (stark_a->num != 17 || stark_a->next->num != 23 || stark_a->next->next->num != 42 || stark_a->prev != NULL || stark_a->next->next->next != NULL) {
+        printf("\033[1;31mTest case 4 failed\033[0m\n");
+    }
+    else {
+        printf("\033[1;32mTest case 4 passed\033[0m\n");
+    }
+
+    // Test case 5: list with four elements
+    stark_a = malloc(sizeof(t_swap));
+    stark_a->num = 23;
+    stark_a->next = malloc(sizeof(t_swap));
+    stark_a->next->num = 42;
+    stark_a->next->next = malloc(sizeof(t_swap));
+    stark_a->next->next->num = 17;
+    stark_a->next->next->next = malloc(sizeof(t_swap));
+    stark_a->next->next->next->num = 8;
+    stark_a->next->next->next->next = NULL;
+    stark_a->next->next->next->prev = stark_a->next->next;
+    stark_a->next->next->prev = stark_a->next;
+    stark_a->next->prev = stark_a;
+    stark_a->prev = NULL;
+    ft_r(&stark_a);
+    if (stark_a->num != 8 || stark_a->next->num != 23 || stark_a->next->next->num != 42 || stark_a->next->next->next->num != 17 || stark_a->prev != NULL || stark_a->next->next->next->next != NULL) {
+        printf("\033[1;31mTest case 5 failed\033[0m\n");
+    }
+    else {
+        printf("\033[1;32mTest case 5 passed\033[0m\n");
+    }
+}
 int	main(void)
 {
     test_ft_pb();
     test_ft_pa();
+    test_ft_r(
+    );
     return (0);
 }

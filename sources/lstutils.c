@@ -61,3 +61,18 @@ void	ft_destroy_lst(t_swap *first_start)
         current_stark = next_stark;
     }
 }
+
+t_swap	*ft_getlast(t_swap *my_stark)
+{
+	t_swap	*tmp_stark;
+
+	tmp_stark = my_stark;
+	if (!tmp_stark)
+		return (NULL);
+	while (tmp_stark->next)
+	{
+		tmp_stark = tmp_stark->next;
+	}
+	
+	return (tmp_stark);
+}	

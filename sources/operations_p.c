@@ -1,23 +1,4 @@
 #include "../includes/push_swap.h"
-//fonction qui copi l'element au top de a 
-//et le mets u top de b.
-// t_head	*ft_pb(t_head *t_stark)
-// {
-// 	t_swap *temp;
-	
-// 	temp = t_stark->head_a;
-// 	if (temp == NULL)
-// 		return (NULL);
-// 	t_stark->head_a = t_stark->head_a->next;
-// 	if (t_stark->head_a != NULL)
-// 		t_stark->head_a->prev = NULL;
-// 	temp->next = t_stark->head_b;
-// 	if (t_stark->head_b != NULL)
-// 		t_stark->head_b->prev = temp;
-// 	t_stark->head_b = temp;
-// 	ft_printf("PB\n");	
-// 	return (t_stark);
-// }
 
 void	ft_p(t_swap **p1, t_swap **p2)
 {
