@@ -3,16 +3,14 @@
 //elle retourne le premier item de la liste.
 t_swap	*ft_switchhead(t_swap *first_stark)
 {
-	t_swap	*tmp_item;
+	int	new_first;
 
 	if (!first_stark->next && !first_stark)
 		return NULL;
-	tmp_item = first_stark->next;
-	first_stark->next->next->prev = first_stark;
-	tmp_item->prev = NULL;
-	first_stark->next = tmp_item->next;
-	tmp_item->next = first_stark;
-	return tmp_item;
+	new_first = first_stark->num;
+	first_stark->num = first_stark->next->num;
+	first_stark->next->num = new_first;
+	return first_stark;
 }
 
 t_swap	*ft_sb(t_swap *sb)

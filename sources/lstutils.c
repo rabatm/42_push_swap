@@ -23,18 +23,20 @@ void ft_lst_add_prev(t_swap *st_current, t_swap *st_prev)
 	st_prev->next = st_current;
 }
 
-t_swap *ft_init_stark(char *val[])
+t_head *ft_init_stark(char *val[], t_head *t_stark)
 {
 	int i;
 	t_swap *current_stark;
 	t_swap *prev_stark;
 	t_swap *first_stark;
+	int	tmp_num;
 
 	i = 1;
 	prev_stark = NULL;
 	while (val[i])
 	{
-		current_stark = ft_lst_mk_item(ft_atoi(val[i]));
+		tmp_num = ft_atoi(val[i]);
+		current_stark = ft_lst_mk_item(tmp_num);
 		if (i > 1)
 			ft_lst_add_prev(current_stark, prev_stark);
 		else 
@@ -42,7 +44,9 @@ t_swap *ft_init_stark(char *val[])
 		prev_stark = current_stark;
 		i++;
 	}
-	return first_stark;
+	t_stark->head_a = first_stark;
+	t_stark->head_a_size = i - 1;
+	return t_stark;
 }
 
 void	ft_destroy_lst(t_swap *first_start)

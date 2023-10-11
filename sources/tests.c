@@ -309,7 +309,7 @@ t_stark = malloc(sizeof(t_head));
 
 
 
-int	main(void)
+int	main2(void)
 {
     test_ft_pb();
     test_ft_pa();
