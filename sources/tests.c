@@ -224,17 +224,15 @@ void    test_ft_r(void)
     }
 
     // Test case 4: list with three elements
-    stark_a = malloc(sizeof(t_swap));
-    stark_a->num = 23;
-    stark_a->next = malloc(sizeof(t_swap));
-    stark_a->next->num = 42;
-    stark_a->next->next = malloc(sizeof(t_swap));
-    stark_a->next->next->num = 17;
-    stark_a->next->next->next = NULL;
-    stark_a->next->next->prev = stark_a->next;
-    stark_a->next->prev = stark_a;
-    stark_a->prev = NULL;
+    char *val_test3[] = {"0","23", "42", "17",NULL};    
+    stark_a = ft_init_stark(val_test3);
+    prtlst(stark_a);
+    printf(" %p, %p, %p  \n", stark_a, stark_a->next, stark_a->next->next);
     ft_r(&stark_a);
+    prtlst(stark_a);
+    printf(" %p, %p, %p  \n", stark_a, stark_a->next, stark_a->next->next);
+    
+    ft_printf(" %d, %d, %d  \n", stark_a->num, stark_a->next->num, stark_a->next->next->num);
     if (stark_a->num != 17 || stark_a->next->num != 23 || stark_a->next->next->num != 42 || stark_a->prev != NULL || stark_a->next->next->next != NULL) {
         printf("\033[1;31mTest case 4 failed\033[0m\n");
     }
