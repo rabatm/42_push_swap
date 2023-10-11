@@ -39,6 +39,8 @@ void	ft_pb(t_head *t_stark);
 void	ft_p(t_swap **p1, t_swap **p2);
 t_swap	*ft_getlast(t_swap *my_stark);
 void	prtlst(t_swap *stark);
-
+void ft_rr(t_head **t_stark);
+void ft_rb(t_swap **p1);
 void	ft_r(t_swap **p1);
+void ft_ra(t_swap **p1);
 #endif

@@ -40,7 +40,6 @@ t_swap *ft_init_stark(char *val[])
 		else 
 			first_stark = current_stark;
 		prev_stark = current_stark;
-
 		i++;
 	}
 	return first_stark;

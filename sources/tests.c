@@ -226,14 +226,8 @@ void    test_ft_r(void)
     // Test case 4: list with three elements
     char *val_test3[] = {"0","23", "42", "17",NULL};    
     stark_a = ft_init_stark(val_test3);
-    prtlst(stark_a);
-    printf(" %p, %p, %p  \n", stark_a, stark_a->next, stark_a->next->next);
     ft_r(&stark_a);
-    prtlst(stark_a);
-    printf(" %p, %p, %p  \n", stark_a, stark_a->next, stark_a->next->next);
-    
-    ft_printf(" %d, %d, %d  \n", stark_a->num, stark_a->next->num, stark_a->next->next->num);
-    if (stark_a->num != 17 || stark_a->next->num != 23 || stark_a->next->next->num != 42 || stark_a->prev != NULL || stark_a->next->next->next != NULL) {
+    if (stark_a->num != 42 || stark_a->next->num != 17 || stark_a->next->next->num != 23 || stark_a->prev != NULL || stark_a->next->next->next != NULL) {
         printf("\033[1;31mTest case 4 failed\033[0m\n");
     }
     else {
@@ -241,32 +235,86 @@ void    test_ft_r(void)
     }
 
     // Test case 5: list with four elements
-    stark_a = malloc(sizeof(t_swap));
-    stark_a->num = 23;
-    stark_a->next = malloc(sizeof(t_swap));
-    stark_a->next->num = 42;
-    stark_a->next->next = malloc(sizeof(t_swap));
-    stark_a->next->next->num = 17;
-    stark_a->next->next->next = malloc(sizeof(t_swap));
-    stark_a->next->next->next->num = 8;
-    stark_a->next->next->next->next = NULL;
-    stark_a->next->next->next->prev = stark_a->next->next;
-    stark_a->next->next->prev = stark_a->next;
-    stark_a->next->prev = stark_a;
-    stark_a->prev = NULL;
+    char *val_test4[] = {"0","23", "42", "17","8",NULL};
+    stark_a = ft_init_stark(val_test4);
     ft_r(&stark_a);
-    if (stark_a->num != 8 || stark_a->next->num != 23 || stark_a->next->next->num != 42 || stark_a->next->next->next->num != 17 || stark_a->prev != NULL || stark_a->next->next->next->next != NULL) {
+    if (stark_a->num != 42 || stark_a->next->num != 17 || stark_a->next->next->num != 8 || stark_a->next->next->next->num != 23 || stark_a->prev != NULL || stark_a->next->next->next->next != NULL) {
         printf("\033[1;31mTest case 5 failed\033[0m\n");
     }
     else {
         printf("\033[1;32mTest case 5 passed\033[0m\n");
     }
 }
+
+void    test_ft_rr(void)
+{
+    t_swap  *stark_a;
+    t_head  *t_stark;
+ printf("\033[1;32mTest RR \033[0m\n");
+t_stark = malloc(sizeof(t_head));
+    // Test case 2: list with one element
+    char *val_test_rr1[] = {"0","23",NULL};
+    t_stark->head_a = ft_init_stark(val_test_rr1);
+    t_stark->head_b = ft_init_stark(val_test_rr1);
+    ft_rr(&t_stark);
+    printf("%p",t_stark->head_a->next );
+    if (t_stark->head_a->num != 23 || t_stark->head_a->next != NULL 
+        || stark_a->prev != NULL ||
+        t_stark->head_b->num != 23 || t_stark->head_b->next != NULL 
+        || stark_a->prev != NULL) {
+        printf("\033[1;31mTest case 2 failed\033[0m\n");
+    }
+    else {
+        printf("\033[1;32mTest case 2 passed\033[0m\n");
+    }
+
+    // Test case 3: list with two elements
+    stark_a = malloc(sizeof(t_swap));
+    stark_a->num = 23;
+    stark_a->next = malloc(sizeof(t_swap));
+    stark_a->next->num = 42;
+    stark_a->next->next = NULL;
+    stark_a->next->prev = stark_a;
+    stark_a->prev = NULL;
+    ft_r(&stark_a);
+    if (stark_a->num != 42 || stark_a->next->num != 23 || stark_a->prev != NULL || stark_a->next->next != NULL) {
+        printf("\033[1;31mTest case 3 failed\033[0m\n");
+    }
+    else {
+        printf("\033[1;32mTest case 3 passed\033[0m\n");
+    }
+
+    // Test case 4: list with three elements
+    char *val_test3[] = {"0","23", "42", "17",NULL};    
+    stark_a = ft_init_stark(val_test3);
+    ft_r(&stark_a);
+    if (stark_a->num != 42 || stark_a->next->num != 17 || stark_a->next->next->num != 23 || stark_a->prev != NULL || stark_a->next->next->next != NULL) {
+        printf("\033[1;31mTest case 4 failed\033[0m\n");
+    }
+    else {
+        printf("\033[1;32mTest case 4 passed\033[0m\n");
+    }
+
+    // Test case 5: list with four elements
+    char *val_test4[] = {"0","23", "42", "17","8",NULL};
+    stark_a = ft_init_stark(val_test4);
+    ft_r(&stark_a);
+    if (stark_a->num != 42 || stark_a->next->num != 17 || stark_a->next->next->num != 8 || stark_a->next->next->next->num != 23 || stark_a->prev != NULL || stark_a->next->next->next->next != NULL) {
+        printf("\033[1;31mTest case 5 failed\033[0m\n");
+    }
+    else {
+        printf("\033[1;32mTest case 5 passed\033[0m\n");
+    }
+}
+
+
+
 int	main(void)
 {
     test_ft_pb();
     test_ft_pa();
     test_ft_r(
     );
+    test_ft_rr();
     return (0);
 }
