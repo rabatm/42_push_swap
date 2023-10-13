@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../includes/push_swap.h"
-
+/*
 // Function to create a new node with given value
 t_swap	*new_node(int value)
 {
     t_swap	*new;
-
+    
     new = (t_swap *)malloc(sizeof(t_swap));
     if (!new)
         return (NULL);
@@ -317,4 +317,4 @@ int	main2(void)
     );
     test_ft_rr();
     return (0);
-}
+}*/

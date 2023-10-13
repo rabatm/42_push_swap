@@ -70,9 +70,9 @@ fclean: clean
 # Règle de recompilation complète
 re: fclean all
 
-# Règle de compilation et d'exécution des tests
-test: $(LIBFT) $(OBJ) $(TEST_OBJ)
-	$(CC) $(TEST_CFLAGS) $(OBJ) $(TEST_OBJ) $(LIBFT) -o test_push_swap -lcriterion
-	@echo "$(GREEN)TESTS PASSED$(DEF_COLOR)"
+watch:
+	@echo "$(BLUE)Watching for changes...$(DEF_COLOR)"
+	./run.sh
+	fswatch -r $(SRCDIR) $(INCLUDEDIR) | xargs -n1 -I{} ./run.sh
 
 .PHONY: all clean fclean re test

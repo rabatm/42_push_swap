@@ -34,3 +34,19 @@ void ft_rr(t_head **t_stark)
 	ft_r(&((*t_stark)->head_b));
 	ft_putstr_fd("RR\n", 1);
 }
+
+void	ft_rra(t_swap **head_a)
+{
+	t_swap	*tmp_s;
+	t_swap	*last;
+
+	if (*head_a == NULL || (*head_a)->next == NULL)
+		return ;
+	tmp_s = *head_a;
+	while (tmp_s->next->next != NULL)
+		tmp_s = tmp_s->next;
+	last = tmp_s->next;
+	last->next = *head_a;
+	*head_a = last;
+	tmp_s->next = NULL;
+}
