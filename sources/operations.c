@@ -1,38 +1,35 @@
 #include "../includes/push_swap.h"
+// fichier qui contient les opérations SS, SA, SB, 
 //fonction qui permute les deux premiers elèment de la pile A
 //elle retourne le premier item de la liste.
-t_swap	*ft_switchhead(t_swap *first_stark)
+void	ft_s(t_swap **head_)
 {
-	int	new_first;
+	t_swap  *new_head;
 
-	if (!first_stark->next && !first_stark)
-		return NULL;
-	new_first = first_stark->num;
-	first_stark->num = first_stark->next->num;
-	first_stark->next->num = new_first;
-	return first_stark;
+	new_head = (*head_)->next;
+	if ((*head_)->next->next)
+		(*head_)->next->next->prev = (*head_);
+	(*head_)->prev = new_head;
+	(*head_)->next = new_head->next;
+	new_head->next = (*head_);
+	(*head_) = new_head;  
 }
 
-t_swap	*ft_sb(t_swap *sb)
+void	ft_sa(t_swap **head_a)
 {
-
-	sb = ft_switchhead(sb);
-	ft_printf("SB\n");	
-	return (sb);
+	ft_s(head_a);
+	ft_printf("SA");
 }
 
-t_swap	*ft_sa(t_swap *sa)
+void	ft_sb(t_swap **head_b)
 {
-	sa = ft_switchhead(sa);
-	ft_printf("SA\n");
-	return (sa);	
+	ft_s(head_b);
+	ft_printf("SB");
 }
 
-t_head	*ft_ss(t_head *t_stark)
+void	ft_ss(t_head *first_stark)
 {
-	t_stark->head_a = ft_switchhead(t_stark->head_a); 
-	t_stark->head_b = ft_switchhead(t_stark->head_b);
-	ft_printf("SS\n");
-	return  t_stark;
+	ft_s(&(first_stark)->head_a);
+	ft_s(&(first_stark)->head_b);
+	ft_printf("SA");
 }
-
