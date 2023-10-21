@@ -7,7 +7,10 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include "./libft/libft.h"
+#define MIN_INT (-2147483648)
+#define MAX_INT 2147483647
 # define ERRINT "ERROR - int overflow.\n"
+
 
 
 typedef	struct s_swap	t_swap;
@@ -53,4 +56,17 @@ void	ft_r(t_swap **p1);
 void	ft_ra(t_swap **p1);
 void	ft_sort(t_head **t_stark);
 void	ft_rra(t_swap **head_a);
+/*
+fonctions pour le try de 3 elements
+*/
+void ft_sort_3(t_swap **stark_a);
+int	ft_first_is_big(t_swap *stark);
+int	ft_last_is_big(t_swap *stark);
+int	ft_mdl_is_the_small(t_swap *stark);
+int	ft_mdl_is_big(t_swap *stark);
+int	ft_mdl_is_medium(t_swap *stark);
+/*
+fonctions pour le try turk
+*/
+void ft_get_min(t_swap *s_stark);
 #endif

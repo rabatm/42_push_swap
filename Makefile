@@ -17,7 +17,6 @@ TESTDIR = test
 # Compilateur et options
 CC = gcc
 CFLAGS = -g -Wall -Werror -Wextra -g
-TEST_CFLAGS = -I$(INCLUDEDIR) -I$(LIBFTDIR) -I$(TESTDIR) -L$(LIBFTDIR) -lft -lcriterion --coverage
 
 # Noms des fichiers
 LIBFT = $(LIBFTDIR)/libft.a
@@ -25,10 +24,6 @@ LIBFT = $(LIBFTDIR)/libft.a
 # Fichiers sources et objets
 SRC = $(wildcard $(SRCDIR)/*.c)
 OBJ = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
-
-# Fichiers de test
-TEST_SRC = $(wildcard $(TESTDIR)/*.c)
-TEST_OBJ = $(patsubst $(TESTDIR)/%.c, $(OBJDIR)/%.o, $(TEST_SRC))
 
 # Règle par défaut
 all: $(NAME)
