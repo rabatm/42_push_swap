@@ -30,6 +30,16 @@ typedef	struct s_head
 	int	head_b_size;
 }	t_head;
 
+typedef struct s_min
+{
+	int	min;
+	int	index_min;
+	int	max;
+	int	index_max;
+	int	mdl;
+	int	index_mdl;
+}	t_min;
+
 t_head *ft_init_stark(char *val[], t_head *t_stark);
 int	ft_check_doublons(t_swap *first_stark);
 int ft_check_is_sort(t_swap *first_stark);
@@ -68,5 +78,10 @@ int	ft_mdl_is_medium(t_swap *stark);
 /*
 fonctions pour le try turk
 */
-void ft_get_min(t_swap *s_stark);
+t_min ft_get_min(t_swap *s_stark);
+t_swap	*ft_move_min(t_swap *f_stark, int top, int min);
+/*
+functions du try des 5
+*/
+void	ft_sort_5(t_head **t_stark);
 #endif

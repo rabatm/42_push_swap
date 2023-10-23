@@ -24,15 +24,14 @@ run_push_swap_3_tests() {
 run_push_swap_tests() {
 	clear
     printf "${BLEU}TEST 1 ${DEF_COLOR}\n"
-    ./push_swap 90 1 2 5
+    ./push_swap 1 5 2 4 3
     printf "${BLEU}TEST 2 ${DEF_COLOR}\n"
-    ./push_swap 90 2 1 6
-    printf "${BLEU}TEST 33 ${DEF_COLOR}\n"
-    ./push_swap 1 90 2 7
-    printf "${BLEU}TEST 44 ${DEF_COLOR}\n"
-    ./push_swap 22 15 19 
-    printf "${BLEU}TEST 5 ${DEF_COLOR}\n"
-    ./push_swap 2 90 1 5
+    ./push_swap 5 4 2 1 3    #printf "${BLEU}TEST 33 ${DEF_COLOR}\n"
+    #./push_swap 1 90 2 7
+    #printf "${BLEU}TEST 44 ${DEF_COLOR}\n"
+    #./push_swap 22 15 19 
+    #printf "${BLEU}TEST 5 ${DEF_COLOR}\n"
+    #./push_swap 2 90 1 5
 }
 # Créez une fonction pour gérer les modifications
     # Compilation et exécution du programme

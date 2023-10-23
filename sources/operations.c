@@ -18,18 +18,18 @@ void	ft_s(t_swap **head_)
 void	ft_sa(t_swap **head_a)
 {
 	ft_s(head_a);
-	ft_printf("SA");
+	ft_printf("SA\n");
 }
 
 void	ft_sb(t_swap **head_b)
 {
 	ft_s(head_b);
-	ft_printf("SB");
+	ft_printf("SB\n");
 }
 
 void	ft_ss(t_head *first_stark)
 {
 	ft_s(&(first_stark)->head_a);
 	ft_s(&(first_stark)->head_b);
-	ft_printf("SA");
+	ft_printf("SA\n");
 }

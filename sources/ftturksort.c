@@ -6,26 +6,40 @@ void ft_turk_sort(t_head t_stark)
 
 }
 
-void ft_get_min(t_swap *s_stark)
+t_min ft_get_min(t_swap *s_stark)
 {
-	long	min;
-	int		index;
 	int		i;
 	t_swap	*current_stark;
+	t_min 	mini_stak;
 
 	current_stark = s_stark;
-	min =	MAX_INT;
-	index = 0;
+	mini_stak.min =	MAX_INT;
+	mini_stak.index_min = 0;
 	i = 0;
 	while	(current_stark)
 	{
-		if (current_stark->num <= min)
+		if (current_stark->num <= mini_stak.min )
 		{
-			min = current_stark->num;
-			index = i;
+			mini_stak.min = current_stark->num;
+			mini_stak.index_min = i;
 		}
 		i++;
 		current_stark=current_stark->next;
 	}
-	printf("MIN : %ld index : %d \n", min, index);
+	return (mini_stak);
+}
+t_swap	*ft_move_min(t_swap *f_stark, int top, int min)
+{
+	while(f_stark->num != min)
+	{
+		if (top)
+		{
+			ft_ra(&f_stark);
+		}
+		else
+		{
+			ft_rra(&f_stark);
+		}
+	}
+	return(f_stark);
 }
