@@ -49,4 +49,5 @@ void	ft_rra(t_swap **head_a)
 	last->next = *head_a;
 	*head_a = last;
 	tmp_s->next = NULL;
+	ft_putstr_fd("RRA\n", 1);
 }

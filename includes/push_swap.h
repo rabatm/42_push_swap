@@ -22,6 +22,13 @@ typedef struct s_swap
 	struct s_swap	*next;
 }	t_swap;
 
+typedef	struct s_item
+{
+	int	num;
+	int	index;
+}	t_item;
+
+
 typedef	struct s_head
 {
 	struct s_swap	*head_a;
@@ -84,4 +91,8 @@ t_swap	*ft_move_min(t_swap *f_stark, int top, int min);
 functions du try des 5
 */
 void	ft_sort_5(t_head **t_stark);
+/*
+functions du trie des 100
+*/
+void	ft_sort_100(t_head **t_stark);
 #endif

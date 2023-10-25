@@ -18,7 +18,7 @@ void ft_sort(t_head **t_stark)
 	{
 		ft_pa((*t_stark));
 	}*/
-	ft_sort_5(t_stark);
+	ft_sort_100(t_stark);
 	//	if ((*t_stark)->head_a_size == 2)
 //		ft_rra(&(*t_stark)->head_a);
 		//ft_ra(&(*t_stark)->head_a);
