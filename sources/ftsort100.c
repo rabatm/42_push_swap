@@ -93,9 +93,9 @@ void	ft_sort_100(t_head **t_stark)
 	t_item	top;
 	t_item down;
 
-	prtlst((*t_stark)->head_a);
 	while ((*t_stark)->head_a)
 	{
+		ft_printf("---- NEW TOUR ----\n");
 		top = ft_find_start(0, 19, *t_stark);
 		down = ft_find_end(0, 19, *t_stark);
 		if (down.index == top.index)
@@ -104,14 +104,12 @@ void	ft_sort_100(t_head **t_stark)
 				ft_down_move(down, t_stark);
 			else
 				ft_top_move(top, t_stark);
-		}
-		if (down.index < top.index)
+		} else if (down.index < top.index)
 			ft_down_move(down, t_stark);
 		else
-			ft_top_move(top, t_stark);	
-	prtlst((*t_stark)->head_b);
+			ft_top_move(top, t_stark);
+		ft_printf("BBBB ----\n");
+		prtlst((*t_stark)->head_b);
 	}
-	
-	
-	prtlst((*t_stark)->head_b);
+
 }
