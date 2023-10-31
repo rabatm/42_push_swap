@@ -4,7 +4,7 @@ void	prtlst(t_swap *stark)
 {
 	while (stark)
 	{
-		printf("%d\n", stark->num);
+		printf("num : %d cost : %d\n", stark->num, stark->mycost);
 		stark = stark->next;
 	}
 }
@@ -24,7 +24,7 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 		//prtlst(t_stark->head_a);
-		ft_sort(&t_stark);
-		//prtlst(t_stark->head_a);
+		ft_cacul_cost(t_stark->head_a, t_stark->a_middle);
+		prtlst(t_stark->head_a);
 		return (0);
 }

@@ -51,3 +51,20 @@ void	ft_rra(t_swap **head_a)
 	tmp_s->next = NULL;
 	ft_putstr_fd("RRA\n", 1);
 }
+
+void	ft_rrb(t_swap **head_b)
+{
+	t_swap	*tmp_s;
+	t_swap	*last;
+
+	if (*head_b == NULL || (*head_b)->next == NULL)
+		return ;
+	tmp_s = *head_b;
+	while (tmp_s->next->next != NULL)
+		tmp_s = tmp_s->next;
+	last = tmp_s->next;
+	last->next = *head_b;
+	*head_b = last;
+	tmp_s->next = NULL;
+	ft_putstr_fd("RRB\n", 1);
+}

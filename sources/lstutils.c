@@ -29,7 +29,7 @@ t_head *ft_init_stark(char *val[], t_head *t_stark)
 	t_swap *current_stark;
 	t_swap *prev_stark;
 	t_swap *first_stark;
-	int	tmp_num;
+	int		tmp_num;
 
 	i = 1;
 	prev_stark = NULL;
@@ -46,6 +46,7 @@ t_head *ft_init_stark(char *val[], t_head *t_stark)
 	}
 	t_stark->head_a = first_stark;
 	t_stark->head_a_size = i - 1;
+	t_stark->a_middle = i / 2;
 	return t_stark;
 }
 

@@ -17,8 +17,13 @@ t_item	ft_find_start(int v_start, int v_end, t_head *stark)
 		i++;
 		my_stark = my_stark->next;
 	}
-	top.index = i;
-	top.num = my_stark->num;
+	if (my_stark)
+	{
+		top.index = i;
+		top.num = my_stark->num;
+	}
+	else 
+		top.index = -1;
 	return (top);
 	
 }
@@ -40,9 +45,50 @@ t_item	ft_find_end(int v_start, int v_end, t_head *stark)
 		i++;
 		my_stark = my_stark->prev;
 	}
-	down.index = i;
-	down.num = my_stark->num;
+	if (my_stark)
+	{
+		down.index = i;
+		down.num = my_stark->num;
+	}
+	else 
+		down.index = -1;
 	return (down);
+}
+
+void	ft_push_b(t_head **t_stark)
+{
+	int	rotate;
+
+	rotate = 0;
+	if (!(*t_stark)->head_b)
+	{
+		ft_pb(*t_stark);
+		return ;
+	}
+	if (ft_im_bigest((*t_stark)->head_a->num, (*t_stark)->head_b))
+	{
+		ft_pb(*t_stark);
+		return ;
+	}
+	if (ft_im_smallest((*t_stark)->head_a->num, (*t_stark)->head_b))
+	{
+		ft_pb(*t_stark);
+		ft_rb(&(*t_stark)->head_b);
+		return ;
+	}
+	while ((*t_stark)->head_a->num < (*t_stark)->head_b->num)
+	{
+		ft_rb(&(*t_stark)->head_b);
+		rotate++;
+	}
+	ft_pb(*t_stark);
+	while (rotate)
+	{
+		ft_rrb(&(*t_stark)->head_b);
+		rotate--;
+	}
+	(void)rotate;
+	
 }
 
 void	ft_down_move(t_item my_item, t_head **t_stark)
@@ -63,7 +109,7 @@ void	ft_down_move(t_item my_item, t_head **t_stark)
 			my_item.index--;
 		}
 	}
-	ft_pb(*t_stark);
+	ft_push_b(t_stark);
 	
 }
 void	ft_top_move(t_item my_item, t_head **t_stark)
@@ -84,23 +130,28 @@ void	ft_top_move(t_item my_item, t_head **t_stark)
 			my_item.index--;
 		}
 	}
-	ft_pb(*t_stark);
+	ft_push_b(t_stark);
 	
 }
 
-void	ft_sort_100(t_head **t_stark)
+void	ft_find_and_stock_b(int start, int end, t_head **t_stark)
 {
 	t_item	top;
 	t_item down;
 
 	while ((*t_stark)->head_a)
 	{
-		ft_printf("---- NEW TOUR ----\n");
-		top = ft_find_start(0, 19, *t_stark);
-		down = ft_find_end(0, 19, *t_stark);
+		top = ft_find_start(start, end, *t_stark);
+		down = ft_find_end(start, end, *t_stark);
+		if ((top.index == -1) && top.index == -1)
+			break;
+		if (top.index == -1)
+			ft_down_move(down, t_stark);
+		if (down.index == -1)
+			ft_down_move(top, t_stark);
 		if (down.index == top.index)
 		{
-			if(down.num < top.num)
+			if(down.num > top.num)
 				ft_down_move(down, t_stark);
 			else
 				ft_top_move(top, t_stark);
@@ -108,8 +159,24 @@ void	ft_sort_100(t_head **t_stark)
 			ft_down_move(down, t_stark);
 		else
 			ft_top_move(top, t_stark);
-		ft_printf("BBBB ----\n");
-		prtlst((*t_stark)->head_b);
-	}
+}
+}
 
+void	ft_back_to_a(t_head **t_stark)
+{
+	while ((*t_stark)->head_b)
+	{
+		ft_pa(*t_stark);
+	}
+	
+}
+
+void	ft_sort_100(t_head **t_stark)
+{
+	ft_find_and_stock_b(0, 30, t_stark);
+	ft_find_and_stock_b(31, 50, t_stark);
+	ft_find_and_stock_b(50, 79, t_stark);
+	ft_find_and_stock_b(80, 100, t_stark);
+	ft_back_to_a(t_stark);
+	//prtlst((*t_stark)->head_a);
 }

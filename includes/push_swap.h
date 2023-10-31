@@ -19,6 +19,8 @@ typedef struct s_swap
 {
 	struct s_swap	*prev;
 	int				num;
+	int				mycost;
+	int				new_post;
 	struct s_swap	*next;
 }	t_swap;
 
@@ -33,8 +35,10 @@ typedef	struct s_head
 {
 	struct s_swap	*head_a;
 	int	head_a_size;
+	int	a_middle;
 	struct s_swap	*head_b;
 	int	head_b_size;
+	int	b_middle;
 }	t_head;
 
 typedef struct s_min
@@ -73,6 +77,7 @@ void	ft_r(t_swap **p1);
 void	ft_ra(t_swap **p1);
 void	ft_sort(t_head **t_stark);
 void	ft_rra(t_swap **head_a);
+void	ft_rrb(t_swap **head_b);
 /*
 fonctions pour le try de 3 elements
 */
@@ -92,7 +97,15 @@ functions du try des 5
 */
 void	ft_sort_5(t_head **t_stark);
 /*
+function cost calcul
+*/
+void	ft_cacul_cost(t_swap *my_swap, int swap_middle);
+/*
 functions du trie des 100
 */
 void	ft_sort_100(t_head **t_stark);
+int	ft_im_bigest(int myval, t_swap *my_stark);
+int	ft_im_smallest(int myval, t_swap *my_stark);
+int ft_sqrt(int x);
+
 #endif

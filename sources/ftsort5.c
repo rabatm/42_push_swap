@@ -72,11 +72,4 @@ void	ft_sort_5(t_head **t_stark)
 	if ((my_new_place == 0 ) && 
 			((*t_stark)->head_a->num > (*t_stark)->head_a->next->num))
 		ft_sa(&(*t_stark)->head_a);
-
-	ft_printf("---s %c	(╯︵╰,)\n", "0");	///CHECKc6K55Ksdd s42
-	if (ft_check_is_sort((*t_stark)->head_a))
-		ft_printf("OK \\*******/\n");
-	else
-		ft_printf("KO %c	(╯︵╰,)\n", "dd");
 }
-
