@@ -19,11 +19,19 @@ void	ft_p(t_swap **p1, t_swap **p2)
 void	ft_pb(t_head *t_stark)
 {
 	ft_p(&t_stark->head_a,&t_stark->head_b);
+	t_stark->head_a_size--;
+	t_stark->head_b_size++;
+	t_stark->a_middle = t_stark->head_a_size / 2;
+	t_stark->b_middle = t_stark->head_b_size / 2;
 	ft_printf("PB\n");
 }
 
 void	ft_pa(t_head *t_stark)
 {
 	ft_p(&t_stark->head_b,&t_stark->head_a);
+	t_stark->head_a_size++;
+	t_stark->head_b_size--;
+	t_stark->a_middle = t_stark->head_a_size / 2;
+	t_stark->b_middle = t_stark->head_b_size / 2;
 	ft_printf("PA\n");
 }

@@ -19,17 +19,16 @@ void	ft_cacul_cost(t_swap *my_swap, int swap_middle)
 	}
 }
 
-void	ft_cacul_b_back(t_swap *my_swap)
+void	ft_cacul_b_back(t_head **my_swap)
 {
-	t_swap	*find_swap;
 	t_swap	*current_swap;
 	t_swap	*tolook_swap;
 
 	current_swap = my_swap;
-	current_swap->new_post = my_swap;
 	while (current_swap)
 	{	
 		tolook_swap = my_swap;
+
 		while(tolook_swap)
 		{
 			if ((current_swap->num < tolook_swap->num)

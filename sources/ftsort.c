@@ -36,7 +36,6 @@ void ft_sort(t_head **t_stark)
 
 void	ft_sort_3(t_swap **stark_a)
 {
-
 	if (ft_mdl_is_big((*stark_a)))
 		ft_sa(stark_a);
 	if (ft_last_is_big((*stark_a)))

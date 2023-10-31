@@ -24,7 +24,7 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 		//prtlst(t_stark->head_a);
-		ft_cacul_cost(t_stark->head_a, t_stark->a_middle);
-		prtlst(t_stark->head_a);
+	ft_sort_100(&t_stark);
+		prtlst(t_stark->head_b);
 		return (0);
 }

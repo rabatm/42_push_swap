@@ -173,10 +173,18 @@ void	ft_back_to_a(t_head **t_stark)
 
 void	ft_sort_100(t_head **t_stark)
 {
-	ft_find_and_stock_b(0, 30, t_stark);
-	ft_find_and_stock_b(31, 50, t_stark);
-	ft_find_and_stock_b(50, 79, t_stark);
-	ft_find_and_stock_b(80, 100, t_stark);
-	ft_back_to_a(t_stark);
+	t_swap	*a;
+	//t_swap	**b;
+	while ((*t_stark)->head_a_size > 3)
+		ft_pb(*t_stark);
+	a = (*t_stark)->head_a;
+	ft_sort_3(&a);
+	ft_cacul_cost((*t_stark)->head_b, (*t_stark)->b_middle);
+	
+	//ft_find_and_stock_b(0, 30, t_stark);
+	//ft_find_and_stock_b(31, 50, t_stark);
+	//ft_find_and_stock_b(50, 79, t_stark);
+	//ft_find_and_stock_b(80, 100, t_stark);
+	//ft_back_to_a(t_stark);
 	//prtlst((*t_stark)->head_a);
 }

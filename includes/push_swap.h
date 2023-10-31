@@ -20,7 +20,7 @@ typedef struct s_swap
 	struct s_swap	*prev;
 	int				num;
 	int				mycost;
-	int				new_post;
+	struct s_swap	new_post;
 	struct s_swap	*next;
 }	t_swap;
 
