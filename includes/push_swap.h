@@ -20,10 +20,10 @@ typedef struct s_swap
 	struct s_swap	*prev;
 	int				num;
 	int				mycost;
-	struct s_swap	new_post;
+	struct s_swap	*new_post;
 	struct s_swap	*next;
+	int				before;
 }	t_swap;
-
 typedef	struct s_item
 {
 	int	num;
@@ -100,6 +100,8 @@ void	ft_sort_5(t_head **t_stark);
 function cost calcul
 */
 void	ft_cacul_cost(t_swap *my_swap, int swap_middle);
+void	ft_cacul_b_back(t_head **my_swap);
+void	ft_find_closest_in_a(t_head **t_stark);
 /*
 functions du trie des 100
 */

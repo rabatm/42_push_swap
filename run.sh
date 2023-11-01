@@ -24,7 +24,7 @@ run_push_swap_3_tests() {
 run_push_swap_tests() {
 	clear
     printf "${BLEU}TEST 1 ${DEF_COLOR}\n"
-    ./push_swap 30, 32, 44, 98, 62, 35, 60, 71, 89, 5, 77, 91, 83, 90, 65, 15, 74, 85, 51, 100, 48, 94, 75, 76, 49, 27, 99, 13, 1, 17, 24, 40
+    ./push_swap 30, 32, 44, 98, 62, 35, 60, 71, 89, 5, 77, 91, 83, 90, 65, 15, 74, 85, 51, 100, 48, 94, 75, 76, 49, 27, 99, 13, 1, 40, 11, 24
 }
 # Créez une fonction pour gérer les modifications
     # Compilation et exécution du programme
