@@ -44,8 +44,8 @@ int	main(int argc, char *argv[])
 	}
 	//prtlst_basic(t_stark->head_a);
 	ft_sort_100(&t_stark);
-		prtlst(t_stark->head_b);
-		prtlst_a(t_stark->head_a);
-		//prtlst_basic(t_stark->head_a);
+		//prtlst(t_stark->head_b);
+		//prtlst_a(t_stark->head_a);
+		prtlst_basic(t_stark->head_a);
 		return (0);
 }

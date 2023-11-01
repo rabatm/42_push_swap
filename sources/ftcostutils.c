@@ -8,12 +8,14 @@ void	ft_cacul_cost(t_swap *my_swap, int swap_middle)
 	while(currentcost < swap_middle)
 	{
 		my_swap->mycost = currentcost;
+		my_swap->top = 0;
 		my_swap = my_swap->next;
-		currentcost++;	
+		currentcost++;
 	}
 	while(my_swap)
 	{
 		my_swap->mycost = currentcost;
+		my_swap->top = 1;
 		my_swap = my_swap->next;
 		currentcost--;
 	}
@@ -56,26 +58,5 @@ void ft_find_closest_in_a(t_head **t_stark)
 			current_b->before = 0;
 		current_b->new_post = closest_in_a;
 		current_b = current_b->next;
-	}
-}
-
-void	ft_cacul_b_back(t_head **my_swap)
-{
-	t_swap	*current_swap;
-	t_swap	*tolook_swap;
-
-	current_swap = (*my_swap)->head_b;
-	while (current_swap)
-	{	
-		tolook_swap = (*my_swap)->head_a;
-		current_swap->new_post = tolook_swap;
-		while(tolook_swap)
-		{
-			if ((current_swap->num < tolook_swap->num)
-				&& (tolook_swap->num > current_swap->new_post->num))
-					current_swap->new_post = tolook_swap;
-			tolook_swap = tolook_swap->next;
-		}
-		current_swap = current_swap->next;
 	}
 }

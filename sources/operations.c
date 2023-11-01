@@ -31,5 +31,5 @@ void	ft_ss(t_head *first_stark)
 {
 	ft_s(&(first_stark)->head_a);
 	ft_s(&(first_stark)->head_b);
-	ft_printf("SA\n");
+	ft_printf("SS\n");
 }

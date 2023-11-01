@@ -23,6 +23,7 @@ typedef struct s_swap
 	struct s_swap	*new_post;
 	struct s_swap	*next;
 	int				before;
+	int				top;
 }	t_swap;
 typedef	struct s_item
 {

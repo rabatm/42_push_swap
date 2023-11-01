@@ -131,7 +131,6 @@ void	ft_top_move(t_item my_item, t_head **t_stark)
 		}
 	}
 	ft_push_b(t_stark);
-	
 }
 
 void	ft_find_and_stock_b(int start, int end, t_head **t_stark)
@@ -168,40 +167,73 @@ void	ft_back_to_a(t_head **t_stark)
 	{
 		ft_pa(*t_stark);
 	}
-	
 }
 
 void	ft_update_cost(t_head **t_stark)
 {
+	ft_find_closest_in_a(t_stark);
 	ft_cacul_cost((*t_stark)->head_b, (*t_stark)->b_middle);
 	ft_cacul_cost((*t_stark)->head_a, (*t_stark)->a_middle);
-	ft_find_closest_in_a(t_stark);
+}
+
+t_swap	*ft_get_cheaper(t_swap *stark_a)
+{
+	int		cheaper;
+	int		tmp_cheaper;
+	t_swap	*current_stark;
+	t_swap	*cheaper_stark;
+
+	current_stark = stark_a;
+	cheaper = MAX_INT;
+	tmp_cheaper = 0;
+	while(current_stark)
+	{
+		tmp_cheaper = current_stark->before + current_stark->mycost;
+		tmp_cheaper = tmp_cheaper + current_stark->new_post->mycost;
+		if (tmp_cheaper < cheaper)
+		{	
+			cheaper_stark = current_stark;
+			cheaper = tmp_cheaper;
+		}
+		current_stark = current_stark->next;
+	}
+	return (cheaper_stark);
 }
 
 void	ft_sort_100(t_head **t_stark)
 {
+	t_swap	*current_cheaper_stark;
+	int		tmp_i_cheaper;
+
 	while ((*t_stark)->head_a_size > 3)
 		ft_pb(*t_stark);
 	ft_sort_3(&(*t_stark)->head_a);
-	ft_update_cost(t_stark);
-	ft_pa(*t_stark);
-	ft_update_cost(t_stark);
-	/*ft_ra(&(*t_stark)->head_a);
-	ft_pa(*t_stark);
-	ft_rra(&(*t_stark)->head_a);
-	ft_update_cost(t_stark);
-	ft_pa(*t_stark);
-	ft_ra(&(*t_stark)->head_a);
-	ft_update_cost(t_stark);
-	ft_rra(&(*t_stark)->head_a);
-	ft_rra(&(*t_stark)->head_a);
-	ft_rra(&(*t_stark)->head_a);
-	ft_pa(*t_stark);
-	ft_update_cost(t_stark);
-	ft_ra(&(*t_stark)->head_a);
-	ft_ra(&(*t_stark)->head_a);
-	ft_ra(&(*t_stark)->head_a);
-	ft_pa(*t_stark);
-	ft_update_cost(t_stark);
-	*/
+	
+	while ((*t_stark)->head_b)
+	{
+		ft_update_cost(t_stark);
+		current_cheaper_stark = ft_get_cheaper((*t_stark)->head_b);
+		tmp_i_cheaper = current_cheaper_stark->before;
+		if (current_cheaper_stark->top == current_cheaper_stark->new_post->top)
+			ft_printf("TOP %d -----", current_cheaper_stark->num);
+		while ((*t_stark)->head_a != current_cheaper_stark->new_post)
+		{	
+			if (current_cheaper_stark->new_post->top)
+				ft_rra(&(*t_stark)->head_a);
+			else
+				ft_ra(&(*t_stark)->head_a);
+		}
+		while ((*t_stark)->head_b != current_cheaper_stark)
+		{
+			if (current_cheaper_stark->top)
+				ft_rrb(&(*t_stark)->head_b);
+			else
+				ft_rb(&(*t_stark)->head_b);
+		}
+		if (((*t_stark)->head_b == current_cheaper_stark) &&
+			((*t_stark)->head_b->new_post == (*t_stark)->head_a))
+			ft_pa(*t_stark);
+		if (tmp_i_cheaper == 1)
+			ft_sa(&(*t_stark)->head_a);
+	}
 }
