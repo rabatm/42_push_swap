@@ -35,36 +35,37 @@ void ft_rr(t_head **t_stark)
 	ft_putstr_fd("RR\n", 1);
 }
 
-void	ft_rra(t_swap **head_a)
+void	ft_rr_(t_swap **p1)
 {
 	t_swap	*tmp_s;
 	t_swap	*last;
 
-	if (*head_a == NULL || (*head_a)->next == NULL)
+	if (*p1 == NULL || (*p1)->next == NULL)
 		return ;
-	tmp_s = *head_a;
+	tmp_s = *p1;
 	while (tmp_s->next->next != NULL)
 		tmp_s = tmp_s->next;
 	last = tmp_s->next;
-	last->next = *head_a;
-	*head_a = last;
+	last->next = *p1;
+	*p1 = last;
 	tmp_s->next = NULL;
-	ft_putstr_fd("RRA\n", 1);
 }
 
 void	ft_rrb(t_swap **head_b)
 {
-	t_swap	*tmp_s;
-	t_swap	*last;
-
-	if (*head_b == NULL || (*head_b)->next == NULL)
-		return ;
-	tmp_s = *head_b;
-	while (tmp_s->next->next != NULL)
-		tmp_s = tmp_s->next;
-	last = tmp_s->next;
-	last->next = *head_b;
-	*head_b = last;
-	tmp_s->next = NULL;
+	ft_rr_(head_b);
 	ft_putstr_fd("RRB\n", 1);
+}
+
+void	ft_rra(t_swap **head_a)
+{
+	ft_rr_(head_a);
+	ft_putstr_fd("RRA\n", 1);
+}
+
+void ft_rrr(t_head **t_stark)
+{
+	ft_rr_(&((*t_stark)->head_a));
+	ft_rr_(&((*t_stark)->head_b));
+	ft_putstr_fd("RRR\n", 1);
 }

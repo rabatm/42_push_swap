@@ -79,6 +79,7 @@ void	ft_ra(t_swap **p1);
 void	ft_sort(t_head **t_stark);
 void	ft_rra(t_swap **head_a);
 void	ft_rrb(t_swap **head_b);
+void	ft_rrr(t_head **t_stark);
 /*
 fonctions pour le try de 3 elements
 */

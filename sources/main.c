@@ -44,7 +44,11 @@ int	main(int argc, char *argv[])
 	}
 	//prtlst_basic(t_stark->head_a);
 	ft_sort_100(&t_stark);
-		//prtlst(t_stark->head_b);
+		prtlst(t_stark->head_b);
+		if ((ft_check_is_sort(t_stark->head_a)))
+			ft_printf("TRI YES ----");
+		else
+			ft_printf("TRI NOO ----");
 		//prtlst_a(t_stark->head_a);
 		prtlst_basic(t_stark->head_a);
 		return (0);
