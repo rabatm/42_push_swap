@@ -209,13 +209,19 @@ void	ft_sort_100(t_head **t_stark)
 		ft_pb(*t_stark);
 	ft_sort_3(&(*t_stark)->head_a);
 	
+	(void)i;
 	//while ((*t_stark)->head_b)
 	while (i != 9)
 	{
 		i ++;
 		ft_update_cost(t_stark);
+		prtlst_basic((*t_stark)->head_a);
+		prtlst((*t_stark)->head_b);
 		current_cheaper_stark = ft_get_cheaper((*t_stark)->head_b);
 		tmp_i_cheaper = current_cheaper_stark->before;
+		printf("chepest %d ", current_cheaper_stark->num);
+		printf("%d \n", current_cheaper_stark->before);
+		(void)tmp_i_cheaper;
 		if (current_cheaper_stark->top == current_cheaper_stark->new_post->top)
 		while (((*t_stark)->head_a != current_cheaper_stark->new_post)
 			&& ((*t_stark)->head_b != current_cheaper_stark))
@@ -242,8 +248,12 @@ void	ft_sort_100(t_head **t_stark)
 		if (((*t_stark)->head_b == current_cheaper_stark) &&
 			((*t_stark)->head_b->new_post == (*t_stark)->head_a))
 			ft_pa(*t_stark);
-		if (tmp_i_cheaper == 1)
-			ft_sa(&(*t_stark)->head_a);
+		//if ((*t_stark)->head_a->num > (*t_stark)->head_a->next->num)
+			//&& tmp_i_cheaper == 0)
+		//	ft_sa(&(*t_stark)->head_a);
+		
+		prtlst_basic((*t_stark)->head_a);
 	}
-ft_update_cost(t_stark);
+//	while (!ft_check_is_sort((*t_stark)->head_a))
+//		ft_ra(&(*t_stark)->head_a);
 }

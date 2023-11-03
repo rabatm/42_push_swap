@@ -4,7 +4,7 @@ void	prtlst_basic(t_swap *stark)
 {
 	while (stark)
 	{
-		printf("num : %d \n", stark->num);
+		printf("%d\n", stark->num);
 		stark = stark->next;
 	}
 }
@@ -43,13 +43,9 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	//prtlst_basic(t_stark->head_a);
-	ft_sort_100(&t_stark);
-		prtlst(t_stark->head_b);
-		if ((ft_check_is_sort(t_stark->head_a)))
-			ft_printf("TRI YES ----");
-		else
-			ft_printf("TRI NOO ----");
+		//ft_sort(&t_stark);
+		ft_sort_100(&t_stark);
+		//prtlst(t_stark->head_b);
 		//prtlst_a(t_stark->head_a);
-		prtlst_basic(t_stark->head_a);
 		return (0);
 }
