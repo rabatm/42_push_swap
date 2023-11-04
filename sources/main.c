@@ -13,8 +13,8 @@ void	prtlst(t_swap *stark)
 {
 	while (stark)
 	{
-		printf("num : %d cost : %d dest : %d befor : %d costtotal : %d\n", stark->num, stark->mycost, stark->new_post->num, 
-		stark->before, (stark->new_post->mycost+ stark->mycost + stark->before));
+		printf("num : %d cost : %d dest : %d costtotal : %d\n", stark->num, stark->mycost, stark->new_post->num, 
+		 (stark->new_post->mycost+ stark->mycost ));
 		stark = stark->next;
 	}
 }

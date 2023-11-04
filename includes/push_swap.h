@@ -104,6 +104,7 @@ functions du trie des 100
 void	ft_sort_100(t_head **t_stark);
 int	ft_im_bigest(int myval, t_swap *my_stark);
 int	ft_im_smallest(int myval, t_swap *my_stark);
+t_swap *ft_get_min_item(t_swap *s_stark);
 int ft_sqrt(int x);
 /*
 ft display
