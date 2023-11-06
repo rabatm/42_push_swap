@@ -19,20 +19,20 @@ void ft_r(t_swap **p1)
 void ft_ra(t_swap **p1)
 {
 	ft_r(p1);
-	ft_putstr_fd("RA\n", 1);
+	ft_putstr_fd("ra\n", 1);
 }
 
 void ft_rb(t_swap **p1)
 {
 	ft_r(p1);
-	ft_putstr_fd("RB\n", 1);
+	ft_putstr_fd("rb\n", 1);
 }
 
 void ft_rr(t_head **t_stark)
 {
 	ft_r(&((*t_stark)->head_a));
 	ft_r(&((*t_stark)->head_b));
-	ft_putstr_fd("RR\n", 1);
+	ft_putstr_fd("rr\n", 1);
 }
 
 void	ft_rr_(t_swap **p1)
@@ -54,18 +54,18 @@ void	ft_rr_(t_swap **p1)
 void	ft_rrb(t_swap **head_b)
 {
 	ft_rr_(head_b);
-	ft_putstr_fd("RRB\n", 1);
+	ft_putstr_fd("rrb\n", 1);
 }
 
 void	ft_rra(t_swap **head_a)
 {
 	ft_rr_(head_a);
-	ft_putstr_fd("RRA\n", 1);
+	ft_putstr_fd("rra\n", 1);
 }
 
 void ft_rrr(t_head **t_stark)
 {
 	ft_rr_(&((*t_stark)->head_a));
 	ft_rr_(&((*t_stark)->head_b));
-	ft_putstr_fd("RRR\n", 1);
+	ft_putstr_fd("rrr\n", 1);
 }
