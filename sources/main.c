@@ -36,16 +36,16 @@ int	main(int argc, char *argv[])
 		return (0);
 	t_stark = malloc(sizeof(t_head));
 	t_stark = ft_init_stark(argv, t_stark);
-	if ((ft_check_is_sort(t_stark->head_a)) || ft_check_doublons(t_stark->head_a))
+	if (ft_check_doublons(t_stark->head_a))
 	{
+		ft_printf("Error\n");
 		ft_destroy_lst(t_stark->head_a);
-		ft_printf("finito pi po\n");
-		return (0);
 	}
-	//prtlst_basic(t_stark->head_a);
-		//ft_sort(&t_stark);
-		ft_sort_100(&t_stark);
-		//prtlst(t_stark->head_b);
-		//prtlst_a(t_stark->head_a);
+	if (ft_check_is_sort(t_stark->head_a))
+	{	
 		return (0);
+		ft_destroy_lst(t_stark->head_a);
+	}
+	ft_sort_100(&t_stark);
+	return (0);
 }
