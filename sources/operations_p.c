@@ -23,7 +23,7 @@ void	ft_pb(t_head *t_stark)
 	t_stark->head_b_size++;
 	t_stark->a_middle = t_stark->head_a_size / 2;
 	t_stark->b_middle = t_stark->head_b_size / 2;
-	ft_printf("PB\n");
+	ft_printf("pb\n");
 }
 
 void	ft_pa(t_head *t_stark)
@@ -33,5 +33,5 @@ void	ft_pa(t_head *t_stark)
 	t_stark->head_b_size--;
 	t_stark->a_middle = t_stark->head_a_size / 2;
 	t_stark->b_middle = t_stark->head_b_size / 2;
-	ft_printf("PA\n");
+	ft_printf("pb\n");
 }

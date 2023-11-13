@@ -36,15 +36,16 @@ int	main(int argc, char *argv[])
 		return (0);
 	t_stark = malloc(sizeof(t_head));
 	t_stark = ft_init_stark(argv, t_stark);
-	if (ft_check_doublons(t_stark->head_a))
+	if (ft_check_doublons(t_stark->head_a) == 1)
 	{
 		ft_printf("Error\n");
 		ft_destroy_lst(t_stark->head_a);
-	}
-	if (ft_check_is_sort(t_stark->head_a))
-	{	
 		return (0);
+	}
+	if (ft_check_is_sort(t_stark->head_a) == 1) 
+	{	
 		ft_destroy_lst(t_stark->head_a);
+		return (0);
 	}
 	ft_sort_100(&t_stark);
 	return (0);
