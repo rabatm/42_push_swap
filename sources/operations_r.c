@@ -1,12 +1,12 @@
 #include "../includes/push_swap.h"
 
-void ft_r(t_swap **p1) 
+void	ft_r(t_swap **p1)
 {
-	t_swap *tmp_swap;
-	t_swap *tmp_last;
+	t_swap	*tmp_swap;
+	t_swap	*tmp_last;
 
 	if (*p1 == NULL || (*p1)->next == NULL)
-		return;
+		return ;
 	tmp_last = ft_getlast(*p1);
 	tmp_swap = *p1;
 	*p1 = (*p1)->next;
@@ -16,19 +16,19 @@ void ft_r(t_swap **p1)
 	tmp_swap->next = NULL;
 }
 
-void ft_ra(t_swap **p1)
+void	ft_ra(t_swap **p1)
 {
 	ft_r(p1);
 	ft_putstr_fd("ra\n", 1);
 }
 
-void ft_rb(t_swap **p1)
+void	ft_rb(t_swap **p1)
 {
 	ft_r(p1);
 	ft_putstr_fd("rb\n", 1);
 }
 
-void ft_rr(t_head **t_stark)
+void	ft_rr(t_head **t_stark)
 {
 	ft_r(&((*t_stark)->head_a));
 	ft_r(&((*t_stark)->head_b));
@@ -63,7 +63,7 @@ void	ft_rra(t_swap **head_a)
 	ft_putstr_fd("rra\n", 1);
 }
 
-void ft_rrr(t_head **t_stark)
+void	ft_rrr(t_head **t_stark)
 {
 	ft_rr_(&((*t_stark)->head_a));
 	ft_rr_(&((*t_stark)->head_b));

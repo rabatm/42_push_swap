@@ -4,7 +4,7 @@
 //elle retourne le premier item de la liste.
 void	ft_s(t_swap **head_)
 {
-	t_swap  *new_head;
+	t_swap	*new_head;
 
 	new_head = (*head_)->next;
 	if ((*head_)->next->next)
@@ -12,7 +12,7 @@ void	ft_s(t_swap **head_)
 	(*head_)->prev = new_head;
 	(*head_)->next = new_head->next;
 	new_head->next = (*head_);
-	(*head_) = new_head;  
+	(*head_) = new_head;
 }
 
 void	ft_sa(t_swap **head_a)

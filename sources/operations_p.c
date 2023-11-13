@@ -2,8 +2,8 @@
 
 void	ft_p(t_swap **p1, t_swap **p2)
 {
-	t_swap *temp;
-	
+	t_swap	*temp;
+
 	temp = *p1;
 	if (temp == NULL)
 		return ;
@@ -18,7 +18,7 @@ void	ft_p(t_swap **p1, t_swap **p2)
 
 void	ft_pb(t_head *t_stark)
 {
-	ft_p(&t_stark->head_a,&t_stark->head_b);
+	ft_p(&t_stark->head_a, &t_stark->head_b);
 	t_stark->head_a_size--;
 	t_stark->head_b_size++;
 	t_stark->a_middle = t_stark->head_a_size / 2;
@@ -28,7 +28,7 @@ void	ft_pb(t_head *t_stark)
 
 void	ft_pa(t_head *t_stark)
 {
-	ft_p(&t_stark->head_b,&t_stark->head_a);
+	ft_p(&t_stark->head_b, &t_stark->head_a);
 	t_stark->head_a_size++;
 	t_stark->head_b_size--;
 	t_stark->a_middle = t_stark->head_a_size / 2;

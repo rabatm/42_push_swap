@@ -2,8 +2,8 @@
 
 int	ft_im_smallest(int myval, t_swap *my_stark)
 {
-	int	f_small;
-	t_swap *current_stark; 
+	int		f_small;
+	t_swap	*current_stark;
 
 	current_stark = my_stark;
 	f_small = 1;
@@ -18,8 +18,8 @@ int	ft_im_smallest(int myval, t_swap *my_stark)
 
 int	ft_im_bigest(int myval, t_swap *my_stark)
 {
-	int	f_big;
-	t_swap *current_stark; 
+	int		f_big;
+	t_swap	*current_stark;
 
 	current_stark = my_stark;
 	f_big = 1;
@@ -32,12 +32,12 @@ int	ft_im_bigest(int myval, t_swap *my_stark)
 	return (f_big);
 }
 
-int ft_sqrt(int x)
+int	ft_sqrt(int x)
 {
-    int y = x;
-    while (y * y > x)
-    {
-        y = (y + x / y) / 2;
-    }
-    return y;
+	int	y;
+
+	y = x;
+	while (y * y > x)
+		y = (y + x / y) / 2;
+	return (y);
 }

@@ -13,8 +13,9 @@ void	prtlst(t_swap *stark)
 {
 	while (stark)
 	{
-		printf("num : %d cost : %d dest : %d costtotal : %d\n", stark->num, stark->mycost, stark->new_post->num, 
-		 (stark->new_post->mycost+ stark->mycost ));
+		printf("num : %d cost : %d dest : %d costtotal : %d\n", stark->num,
+			stark->mycost, stark->new_post->num,
+			(stark->new_post->mycost + stark->mycost));
 		stark = stark->next;
 	}
 }
@@ -35,10 +36,11 @@ int	main(int argc, char *argv[])
 	if (argc < 2)
 		return (0);
 	t_stark = malloc(sizeof(t_head));
-	if (t_stark == NULL) {
+	if (t_stark == NULL)
+	{
 		ft_printf("Error\n");
-        return (1);
-    }
+		return (1);
+	}
 	t_stark = ft_init_stark(argv, t_stark);
 	if (ft_check_doublons(t_stark->head_a) == 1)
 	{
@@ -47,8 +49,8 @@ int	main(int argc, char *argv[])
 		free(t_stark);
 		return (0);
 	}
-	if (ft_check_is_sort(t_stark->head_a) == 1) 
-	{	
+	if (ft_check_is_sort(t_stark->head_a) == 1)
+	{
 		ft_destroy_lst(t_stark->head_a);
 		free(t_stark);
 		return (0);
@@ -57,6 +59,5 @@ int	main(int argc, char *argv[])
 	ft_destroy_lst(t_stark->head_a);
 	ft_destroy_lst(t_stark->head_b);
 	free(t_stark);
-	
 	return (0);
 }

@@ -4,9 +4,9 @@ void	ft_prterreandfree(char *msg, int err, t_swap *stark)
 {
 	if (err != 0)
 		ft_putstr_fd(msg, 2);
-	if(stark)
+	if (stark)
 		ft_destroy_lst(stark);
-	exit(err);
+	exit (err);
 }
 
 void	ft_help(void)

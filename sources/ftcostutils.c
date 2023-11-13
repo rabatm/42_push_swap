@@ -7,26 +7,26 @@ void	ft_cacul_cost(t_swap *my_swap, int swap_size)
 
 	sw_mid = swap_size / 2;
 	currentcost = 0;
-	while(currentcost < sw_mid)
+	while (currentcost < sw_mid)
 	{
 		my_swap->mycost = currentcost;
 		my_swap->top = 0;
 		my_swap = my_swap->next;
-		currentcost++;
+		currentcost ++;
 	}
-	while(my_swap)
+	while (my_swap)
 	{
 		my_swap->mycost = currentcost;
 		my_swap->top = 1;
 		my_swap = my_swap->next;
-		currentcost--;
+		currentcost --;
 	}
 }
 
-t_swap *ft_find_closest(t_swap *head, int num)
+t_swap	*ft_find_closest(t_swap *head, int num)
 {
-	t_swap *closest;
-	t_swap *current;
+	t_swap	*closest;
+	t_swap	*current;
 
 	closest = NULL;
 	current = head;
@@ -38,19 +38,19 @@ t_swap *ft_find_closest(t_swap *head, int num)
 				closest = current;
 			else if (closest->num > current->num)
 				closest = current;
-		}		
-		current = current->next;	
+		}
+		current = current->next;
 	}
-	return closest;
+	return (closest);
 }
 
-void ft_find_closest_in_a(t_head **t_stark)
+void	ft_find_closest_in_a(t_head **t_stark)
 {
-	t_swap *current_b;
-	t_swap *closest_in_a;
+	t_swap	*current_b;
+	t_swap	*closest_in_a;
 	int		testsmall;
 	int		testtaill;
-	
+
 	current_b = (*t_stark)->head_b;
 	while (current_b != NULL)
 	{
@@ -65,9 +65,8 @@ void ft_find_closest_in_a(t_head **t_stark)
 		if (testsmall == 1 || testtaill == 1)
 			closest_in_a = ft_get_min_item((*t_stark)->head_a);
 		else
-			closest_in_a = ft_find_closest((*t_stark)->head_a, current_b->num);	
+			closest_in_a = ft_find_closest((*t_stark)->head_a, current_b->num);
 		current_b->new_post = closest_in_a;
 		current_b = current_b->next;
-
 	}
 }
