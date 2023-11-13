@@ -35,18 +35,28 @@ int	main(int argc, char *argv[])
 	if (argc < 2)
 		return (0);
 	t_stark = malloc(sizeof(t_head));
+	if (t_stark == NULL) {
+		ft_printf("Error\n");
+        return (1);
+    }
 	t_stark = ft_init_stark(argv, t_stark);
 	if (ft_check_doublons(t_stark->head_a) == 1)
 	{
 		ft_printf("Error\n");
 		ft_destroy_lst(t_stark->head_a);
+		free(t_stark);
 		return (0);
 	}
 	if (ft_check_is_sort(t_stark->head_a) == 1) 
 	{	
 		ft_destroy_lst(t_stark->head_a);
+		free(t_stark);
 		return (0);
 	}
 	ft_sort_100(&t_stark);
+	ft_destroy_lst(t_stark->head_a);
+	ft_destroy_lst(t_stark->head_b);
+	free(t_stark);
+	
 	return (0);
 }

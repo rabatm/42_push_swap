@@ -1,11 +1,13 @@
 #include "../includes/push_swap.h"
 
-void	ft_cacul_cost(t_swap *my_swap, int swap_middle)
+void	ft_cacul_cost(t_swap *my_swap, int swap_size)
 {
 	int		currentcost;
+	int		sw_mid;
 
+	sw_mid = swap_size / 2;
 	currentcost = 0;
-	while(currentcost < swap_middle)
+	while(currentcost < sw_mid)
 	{
 		my_swap->mycost = currentcost;
 		my_swap->top = 0;

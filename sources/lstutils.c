@@ -8,6 +8,7 @@ t_swap *ft_lst_mk_item(int valini)
 	if (!stark)
 		return NULL;
 	stark->num = valini;
+	stark->top = 0;
 	stark->next = NULL;
 	stark->prev = NULL;
 	return (stark);
@@ -45,6 +46,9 @@ t_head *ft_init_stark(char *val[], t_head *t_stark)
 		i++;
 	}
 	t_stark->head_a = first_stark;
+	t_stark->head_b = NULL;
+	t_stark->head_b_size = 0;
+	t_stark->b_middle = 0;
 	t_stark->head_a_size = i - 1;
 	t_stark->a_middle = i / 2;
 	return t_stark;

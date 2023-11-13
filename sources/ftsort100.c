@@ -172,8 +172,8 @@ void	ft_back_to_a(t_head **t_stark)
 void	ft_update_cost(t_head **t_stark)
 {
 	ft_find_closest_in_a(t_stark);
-	ft_cacul_cost((*t_stark)->head_b, (*t_stark)->b_middle);
-	ft_cacul_cost((*t_stark)->head_a, (*t_stark)->a_middle);
+	ft_cacul_cost((*t_stark)->head_b, (*t_stark)->head_b_size);
+	ft_cacul_cost((*t_stark)->head_a, (*t_stark)->head_a_size);
 }
 
 t_swap	*ft_get_cheaper(t_swap *stark_a)
@@ -202,26 +202,14 @@ t_swap	*ft_get_cheaper(t_swap *stark_a)
 void	ft_sort_100(t_head **t_stark)
 {
 	t_swap	*current_cheaper_stark;
-	char current_position;
 	
-	int i = 0;
 	while ((*t_stark)->head_a_size > 3)
 		ft_pb(*t_stark);
 	ft_sort_3(&(*t_stark)->head_a);
-	
-	(void)i;
-	(void)current_position;
 	while ((*t_stark)->head_b)
-	//while (i != 2)
 	{
-		i ++;
 		ft_update_cost(t_stark);
-		//ft_printf("-- A --\n");
-		//prtlst_basic((*t_stark)->head_a);
-		//ft_printf("-- B--\n");
-		//prtlst((*t_stark)->head_b);
 		current_cheaper_stark = ft_get_cheaper((*t_stark)->head_b);
-		current_position =  current_cheaper_stark->position;
 		if (current_cheaper_stark->top == current_cheaper_stark->new_post->top)
 		while (((*t_stark)->head_a != current_cheaper_stark->new_post)
 			&& ((*t_stark)->head_b != current_cheaper_stark))
@@ -248,11 +236,7 @@ void	ft_sort_100(t_head **t_stark)
 		if (((*t_stark)->head_b == current_cheaper_stark) &&
 			((*t_stark)->head_b->new_post == (*t_stark)->head_a))
 			ft_pa(*t_stark);
-		//if (current_position == 'B')
-		//	ft_sa(&(*t_stark)->head_a);
-		//prtlst_basic((*t_stark)->head_a);
 	}
 	while (!ft_check_is_sort((*t_stark)->head_a))
 		ft_ra(&(*t_stark)->head_a);
-	//prtlst_basic((*t_stark)->head_a);
 }
