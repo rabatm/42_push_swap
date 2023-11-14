@@ -36,7 +36,7 @@ t_head	*ft_init_val(t_head *t_stark, int i)
 	return (t_stark);
 }
 
-t_head	*ft_init_stark(char *val[], t_head *t_stark)
+t_head	*ft_init_stark(char *val[], t_head *t_stark, int initi)
 {
 	int		i;
 	t_swap	*current_stark;
@@ -44,13 +44,13 @@ t_head	*ft_init_stark(char *val[], t_head *t_stark)
 	t_swap	*first_stark;
 	int		tmp_num;
 
-	i = 1;
+	i = initi;
 	prev_stark = NULL;
 	while (val[i])
 	{
 		tmp_num = ft_atoi(val[i]);
 		current_stark = ft_lst_mk_item(tmp_num);
-		if (i > 1)
+		if (i > initi)
 			ft_lst_add_prev(current_stark, prev_stark);
 		else
 			first_stark = current_stark;

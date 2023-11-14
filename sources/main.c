@@ -32,12 +32,17 @@ void	prtlst_a(t_swap *stark)
 t_head	*get_args_to_init(char *argv[], int argc, t_head *t_stark)
 {
 	char	**my_argv;
+	int		i;
 	
+	i = 1;
 	if (argc == 2)
+	{
 		my_argv = ft_split(argv[1], ' ');
+		i = 0;
+	}
 	else
 		my_argv = argv;
-	t_stark = ft_init_stark(my_argv, t_stark);
+	t_stark = ft_init_stark(my_argv, t_stark, i);
 	return t_stark;
 }
 

@@ -55,7 +55,6 @@ t_swap	*ft_get_cheaper(t_swap *stark_a)
 void	ft_sort_100(t_head **t_stark)
 {
 	t_swap	*current_cheaper_stark;
-
 	while ((*t_stark)->head_a_size > 3)
 		ft_pb(*t_stark);
 	ft_sort_3(&(*t_stark)->head_a);
