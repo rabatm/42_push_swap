@@ -1,19 +1,38 @@
 #include "../includes/push_swap.h"
 
-void	ft_prterreandfree(char *msg, int err, t_swap *stark)
+void	ft_check_maxmin(char **myarg)
 {
-	if (err != 0)
-		ft_putstr_fd(msg, 2);
-	if (stark)
-		ft_destroy_lst(stark);
-	exit (err);
+	int			i;
+	long long	num;
+
+	i = 1;
+	while (myarg[i])
+	{
+		num = ft_atoi(myarg[i]);
+		if (num >= MAX_INT || num <= MIN_INT)
+		{
+			ft_printf("Error\n");
+			exit(1);
+		}
+		i++;
+	}
 }
 
-void	ft_help(void)
+void	ft_error_gest(t_head *t_stark)
 {
-	ft_putstr_fd("Push_Swap: How to ...\n", 1);
-	ft_putstr_fd("To run the program, please use...\n", 1);
-	ft_putstr_fd("./push_swap \"Number sequence\"\n", 1);
+	if (ft_check_doublons(t_stark->head_a) == 1)
+	{
+		ft_printf("Error\n");
+		ft_destroy_lst(t_stark->head_a);
+		free(t_stark);
+		exit (1);
+	}
+	if (ft_check_is_sort(t_stark->head_a) == 1)
+	{
+		ft_destroy_lst(t_stark->head_a);
+		free(t_stark);
+		exit (1);
+	}
 }
 
 t_swap	*ft_getlast(t_swap *my_stark)

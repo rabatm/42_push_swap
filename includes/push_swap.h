@@ -45,15 +45,18 @@ typedef struct s_min
 	int	mdl;
 	int	index_mdl;
 }	t_min;
-
+/*
+ft init functions and error functions
+*/
 t_head	*ft_init_stark(char *val[], t_head *t_stark, int initi);
 int		ft_check_doublons(t_swap *first_stark);
 int		ft_check_is_sort(t_swap *first_stark);
+void	ft_error_gest(t_head *t_stark);
+void	ft_check_maxmin(char **myarg);
 /*
 ft for destroy and quit
 */
 void	ft_destroy_lst(t_swap *first_start);
-void	ft_prterreandfree(char *msg, int err, t_swap *stark);
 /*
 OPERATES
 */

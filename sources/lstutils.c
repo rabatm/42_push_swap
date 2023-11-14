@@ -31,7 +31,7 @@ t_head	*ft_init_val(t_head *t_stark, int i)
 	t_stark->head_b = NULL;
 	t_stark->head_b_size = 0;
 	t_stark->b_middle = 0;
-	t_stark->head_a_size = i - 1;
+	t_stark->head_a_size = i;
 	t_stark->a_middle = i / 2;
 	return (t_stark);
 }
@@ -58,6 +58,6 @@ t_head	*ft_init_stark(char *val[], t_head *t_stark, int initi)
 		i++;
 	}
 	t_stark->head_a = first_stark;
-	t_stark = ft_init_val(t_stark, i);
+	t_stark = ft_init_val(t_stark, i - initi);
 	return (t_stark);
 }
