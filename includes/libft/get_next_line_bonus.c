@@ -3,23 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabat <mrabat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: martincelavie <martincelavie@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:39:12 by hchauvin          #+#    #+#             */
-/*   Updated: 2023/09/07 11:50:08 by mrabat           ###   ########.fr       */
+/*   Updated: 2023/11/14 16:36:11 by martincelav      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-# ifndef BUFFER_SIZE
+#ifndef BUFFER_SIZE
 # define BUFFER_SIZE 10
 
 char	*read_str(int fd, char *str)
 {
 	char	*buff;
 	int		read_size;
-
 
 	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buff)
@@ -92,6 +91,7 @@ char	*next_line(char *str)
 	free(str);
 	return (tab);
 }
+
 void	ft_free(char **str)
 {
 	int	i;
@@ -111,10 +111,10 @@ char	*get_next_line(int fd, int last)
 	static char	*str[1024];
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
-		{
-			ft_free(str);
-			return (NULL);
-		}
+	{
+		ft_free(str);
+		return (NULL);
+	}
 	if (!str[fd])
 		str[fd] = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (!str[fd])

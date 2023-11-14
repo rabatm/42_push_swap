@@ -26,6 +26,16 @@ void	ft_lst_add_prev(t_swap *st_current, t_swap *st_prev)
 	st_prev->next = st_current;
 }
 
+t_head	*ft_init_val(t_head *t_stark, int i)
+{
+	t_stark->head_b = NULL;
+	t_stark->head_b_size = 0;
+	t_stark->b_middle = 0;
+	t_stark->head_a_size = i - 1;
+	t_stark->a_middle = i / 2;
+	return (t_stark);
+}
+
 t_head	*ft_init_stark(char *val[], t_head *t_stark)
 {
 	int		i;
@@ -48,40 +58,6 @@ t_head	*ft_init_stark(char *val[], t_head *t_stark)
 		i++;
 	}
 	t_stark->head_a = first_stark;
-	t_stark->head_b = NULL;
-	t_stark->head_b_size = 0;
-	t_stark->b_middle = 0;
-	t_stark->head_a_size = i - 1;
-	t_stark->a_middle = i / 2;
+	t_stark = ft_init_val(t_stark, i);
 	return (t_stark);
-}
-
-void	ft_destroy_lst(t_swap *first_start)
-{
-	t_swap	*current_stark;
-	t_swap	*next_stark;
-
-	if (!first_start)
-		return ;
-	current_stark = first_start;
-	while (current_stark)
-	{
-		next_stark = current_stark->next;
-		free(current_stark);
-		current_stark = next_stark;
-	}
-}
-
-t_swap	*ft_getlast(t_swap *my_stark)
-{
-	t_swap	*tmp_stark;
-
-	tmp_stark = my_stark;
-	if (!tmp_stark)
-		return (NULL);
-	while (tmp_stark->next)
-	{
-		tmp_stark = tmp_stark->next;
-	}
-	return (tmp_stark);
 }
