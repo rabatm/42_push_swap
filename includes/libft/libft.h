@@ -6,7 +6,7 @@
 /*   By: martincelavie <martincelavie@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 09:38:31 by hchauvin          #+#    #+#             */
-/*   Updated: 2023/11/14 22:49:15 by martincelav      ###   ########.fr       */
+/*   Updated: 2023/11/14 23:01:32 by martincelav      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,5 @@ char		*get_next_line(int fd, int last);
 int			print_err(char *msg, int options);
 int			ft_arraylen(char **array);
 void		free_array(char **array);
-int			ft_htoi(char *str);
 
 #endif

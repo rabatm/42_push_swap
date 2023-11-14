@@ -42,7 +42,7 @@ t_head	*get_args_to_init(char *argv[], int argc, t_head *t_stark)
 	}
 	else
 		my_argv = argv;
-	ft_check_maxmin(my_argv);
+	ft_check_maxmin(my_argv, i);
 	t_stark = ft_init_stark(my_argv, t_stark, i);
 	return (t_stark);
 }
@@ -55,13 +55,10 @@ int	main(int argc, char *argv[])
 		exit (0);
 	t_stark = malloc(sizeof(t_head));
 	if (t_stark == NULL)
-	{
-		ft_printf("Error\n");
-		exit (1);
-	}
+		ft_prterror_quit();
 	t_stark = get_args_to_init(argv, argc, t_stark);
 	ft_error_gest(t_stark);
-	ft_sort_100(&t_stark);
+	ft_sort(&t_stark);
 	ft_destroy_lst(t_stark->head_a);
 	ft_destroy_lst(t_stark->head_b);
 	free(t_stark);

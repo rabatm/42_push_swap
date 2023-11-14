@@ -12,3 +12,16 @@ void	ft_sort_3(t_swap **stark_a)
 	if (ft_mdl_is_medium((*stark_a)))
 		ft_sa(stark_a);
 }
+
+void	ft_sort_2(t_swap **stark_a)
+{
+		ft_sa(stark_a);
+}
+
+void	ft_sort(t_head **t_stark)
+{
+	if ((*t_stark)->head_a_size == 2)
+		ft_sort_2((&(*t_stark)->head_a));
+	else
+		ft_sort_100(t_stark);
+}

@@ -52,7 +52,8 @@ t_head	*ft_init_stark(char *val[], t_head *t_stark, int initi);
 int		ft_check_doublons(t_swap *first_stark);
 int		ft_check_is_sort(t_swap *first_stark);
 void	ft_error_gest(t_head *t_stark);
-void	ft_check_maxmin(char **myarg);
+void	ft_prterror_quit(void);
+void	ft_check_maxmin(char **myarg, int inity);
 /*
 ft for destroy and quit
 */
@@ -75,7 +76,9 @@ void	ft_rra(t_swap **head_a);
 void	ft_rrb(t_swap **head_b);
 void	ft_rrr(t_head **t_stark);
 /*
-function for 3 sort*/
+function for 3 sort
+*/
+void	ft_sort(t_head **t_stark);
 void	ft_sort_3(t_swap **stark_a);
 int		ft_first_is_big(t_swap *stark);
 int		ft_last_is_big(t_swap *stark);

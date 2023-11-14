@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hchauvin <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: martincelavie <martincelavie@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 09:31:44 by hchauvin          #+#    #+#              #
-#    Updated: 2023/09/14 09:41:35 by hchauvin         ###   ########.fr        #
+#    Updated: 2023/11/14 23:01:44 by martincelav      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ SRC :=	ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c \
 		free_array.c ft_arraylen.c	print_err.c	\
 		get_next_line_bonus.c	ft_strjoin_free.c	\
-		ft_printf.c	ft_printf_utils.c	ft_htoi.c	\
+		ft_printf.c	ft_printf_utils.c	\
 
 OBJ := ${SRC:.c=.o}
 
