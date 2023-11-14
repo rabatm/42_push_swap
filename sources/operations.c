@@ -1,7 +1,5 @@
 #include "../includes/push_swap.h"
-// fichier qui contient les opérations SS, SA, SB, 
-//fonction qui permute les deux premiers elèment de la pile A
-//elle retourne le premier item de la liste.
+
 void	ft_s(t_swap **head_)
 {
 	t_swap	*new_head;

@@ -29,6 +29,18 @@ void	prtlst_a(t_swap *stark)
 	}
 }
 
+t_head	*get_args_to_init(char *argv[], int argc, t_head *t_stark)
+{
+	char	**my_argv;
+	
+	if (argc == 2)
+		my_argv = ft_split(argv[1], ' ');
+	else
+		my_argv = argv;
+	t_stark = ft_init_stark(my_argv, t_stark);
+	return t_stark;
+}
+
 int	main(int argc, char *argv[])
 {
 	t_head	*t_stark;
@@ -41,7 +53,7 @@ int	main(int argc, char *argv[])
 		ft_printf("Error\n");
 		return (1);
 	}
-	t_stark = ft_init_stark(argv, t_stark);
+	t_stark = get_args_to_init(argv, argc, t_stark);
 	if (ft_check_doublons(t_stark->head_a) == 1)
 	{
 		ft_printf("Error\n");
