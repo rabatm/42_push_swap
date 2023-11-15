@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ftturksort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabat <mrabat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: martincelavie <martincelavie@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:19:41 by mrabat            #+#    #+#             */
-/*   Updated: 2023/11/15 15:19:46 by mrabat           ###   ########.fr       */
+/*   Updated: 2023/11/15 16:12:03 by martincelav      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 t_min	ft_get_min(t_swap *s_stark)
 {

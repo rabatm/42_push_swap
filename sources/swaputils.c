@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   swaputils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabat <mrabat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: martincelavie <martincelavie@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:21:25 by mrabat            #+#    #+#             */
-/*   Updated: 2023/11/15 15:21:26 by mrabat           ###   ########.fr       */
+/*   Updated: 2023/11/15 16:12:39 by martincelav      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 int	ft_check_doublons(t_swap *first_stark)
 {

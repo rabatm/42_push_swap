@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   lstutils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabat <mrabat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: martincelavie <martincelavie@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:21:22 by mrabat            #+#    #+#             */
-/*   Updated: 2023/11/15 15:21:24 by mrabat           ###   ########.fr       */
+/*   Updated: 2023/11/15 16:12:15 by martincelav      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 t_swap	*ft_lst_mk_item(int valini)
 {

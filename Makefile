@@ -7,78 +7,68 @@ BLUE = \033[0;94m
 
 NAME = push_swap
 
-# Compilater and options
+# Compiler and options
 CC = gcc
-CFLAGS = -g -Wall -Werror -Wextra -g
+CFLAGS = -g -Wall -Werror -Wextra
 
 # FOLDERS
 SRCDIR = sources
 OBJDIR = obj
-PSSOURCES = $(SRCDIR)/push_swap
-CHKSOURCES = $(SRCDIR)/checker
-OPSOURCES = $(SRCDIR)/operations
-LSTSOURCES = $(SRCDIR)/lst
-SRTSOURCES = $(SRCDIR)/sortfunc
 INCLUDEDIR = includes
 LIBFTDIR = includes/libft
 
-#files for operations
-SRCOP = $(OPSOURCES)/operations.c $(OPSOURCES)/operations_p.c \
-$(OPSOURCES)/operations_r.c $(OPSOURCES)/operations_rr.c
+# Files for operations
+SRCOP = $(SRCDIR)/operations.c $(SRCDIR)/operations_p.c \
+	$(SRCDIR)/operations_r.c $(SRCDIR)/operations_rr.c
 
-#files for lst
-SRCLST = $(LSTSOURCES)/ftcostutils.c $(LSTSOURCES)/ftsort100.c \
-$(LSTSOURCES)/ft_sort100_u.c $(LSTSOURCES)/ftsort100_utils.c \
-$(LSTSOURCES)/ftsort3.c $(LSTSOURCES)/ftsort.c \
-$(LSTSOURCES)/ftturksor.c
+# Files for lst
+SRCLST = $(SRCDIR)/lstutils_err.c $(SRCDIR)/lstutils_s.c $(SRCDIR)/lstutils.c
 
-#file for sortfunctions
-SRCSRT = $(SRTSOURCES)/ftcostutils.c $(SRTSOURCES)/ftsort100.c $(SRTSOURCES)/ft_sort100_u.c \
-$(SRTSOURCES)/ftsort100_utils.c $(SRTSOURCES)/ftsort3.c $(SRTSOURCES)/ftsort.c \
-$(SRTSOURCES)/ftturksort.c
+# Files for sortfunctions
+SRCSRT = $(SRCDIR)/ftcostutils.c $(SRCDIR)/ftsort100.c $(SRCDIR)/ft_sort100_u.c \
+		$(SRCDIR)/ftsort100_utils.c $(SRCDIR)/ftsort3.c $(SRCDIR)/ftsort.c \
+		$(SRCDIR)/ftturksort.c $(SRCDIR)/swaputils.c
 
-#files for push_swap
-PSSRCS = $(SRCOP) $(SRCLST) $(SRCSRT) $(PSSOURCES)/main.c
+# Files for push_swap
+PSSRCS = $(SRCOP) $(SRCLST) $(SRCSRT) $(SRCDIR)/main.c
 
-# files name
+# Files name
 LIBFT = $(LIBFTDIR)/libft.a
 
 # Fichiers sources et objets
-OBJPS = $(PSSRCS:.c=.o)
+OBJPS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(PSSRCS))
 
-# Règle par défaut
+# Rule to compile source files to object files
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
+	@echo "$(YELLOW)OBJ CREATED: $@$(DEF_COLOR)"
+
+# Rule to build the executable
 all: $(NAME)
 
-# Règle de construction de l'exécutable
 $(NAME): $(LIBFT) $(OBJPS)
-	$(CC) $(CFLAGS) $(OBJPS) $(LIBFT)  -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJPS) $(LIBFT) -o $(NAME)
 	@echo "$(BLUE)$(NAME) READY IN BIN FOLDER$(DEF_COLOR)"
 
-
-# Règle de compilation des fichiers objets
-$(OBJDIR)/%.o: $(PSSRCS)
-	$(shell mkdir -p $(OBJDIR))
-	$(CC) $(CFLAGS) -c $< -o $@
-	@echo "$(YELLOW)OBJ CREATED$(DEF_COLOR)"
-
-# Règle de construction de la bibliothèque libft.a
+# Rule to build the library libft.a
 $(LIBFT):
 	$(MAKE) -sC $(LIBFTDIR) all
 	@echo "$(YELLOW)LIBFT COMPILED$(DEF_COLOR)"
 
-# Règle de nettoyage des fichiers objets
+# Rule to clean object files
 clean:
 	$(MAKE) clean -C $(LIBFTDIR)
 	rm -rf $(OBJDIR)
-	@echo "$(BLUE)cleaned!$(DEF_COLOR)"
+	@echo "$(BLUE)Cleaned!$(DEF_COLOR)"
 
-# Règle de nettoyage complet
+# Rule to clean everything
 fclean: clean
 	$(MAKE) fclean -C $(LIBFTDIR)
-	rm $(NAME)
-	@echo "$(RED)cleaned!$(DEF_COLOR)"
+	rm -f $(NAME)
+	@echo "$(RED)Removed everything!$(DEF_COLOR)"
 
-# Règle de recompilation complète
+# Rule to recompile everything
 re: fclean all
 
 .PHONY: all clean fclean re

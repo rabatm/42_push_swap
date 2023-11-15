@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort100_u.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabat <mrabat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: martincelavie <martincelavie@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:21:47 by mrabat            #+#    #+#             */
-/*   Updated: 2023/11/15 15:21:48 by mrabat           ###   ########.fr       */
+/*   Updated: 2023/11/15 16:11:38 by martincelav      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 t_swap	*ft_get_min_item(t_swap *s_stark)
 {

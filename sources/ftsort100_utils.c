@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ftsort100_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabat <mrabat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: martincelavie <martincelavie@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:19:51 by mrabat            #+#    #+#             */
-/*   Updated: 2023/11/15 15:19:52 by mrabat           ###   ########.fr       */
+/*   Updated: 2023/11/15 16:11:55 by martincelav      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 int	ft_im_smallest(int myval, t_swap *my_stark)
 {

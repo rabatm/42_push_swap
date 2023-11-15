@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ftsort3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabat <mrabat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: martincelavie <martincelavie@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:19:53 by mrabat            #+#    #+#             */
-/*   Updated: 2023/11/15 15:19:54 by mrabat           ###   ########.fr       */
+/*   Updated: 2023/11/15 16:11:50 by martincelav      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 int	ft_first_is_big(t_swap *stark)
 {

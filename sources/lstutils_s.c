@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   lstutils_s.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabat <mrabat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: martincelavie <martincelavie@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:20:37 by mrabat            #+#    #+#             */
-/*   Updated: 2023/11/15 15:20:38 by mrabat           ###   ########.fr       */
+/*   Updated: 2023/11/15 16:12:11 by martincelav      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 void	ft_check_maxmin(char **myarg, int inity)
 {

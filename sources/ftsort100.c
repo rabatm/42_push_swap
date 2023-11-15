@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ftsort100.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabat <mrabat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: martincelavie <martincelavie@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:19:48 by mrabat            #+#    #+#             */
-/*   Updated: 2023/11/15 15:19:49 by mrabat           ###   ########.fr       */
+/*   Updated: 2023/11/15 16:11:59 by martincelav      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 void	ft_update_cost(t_head **t_stark)
 {

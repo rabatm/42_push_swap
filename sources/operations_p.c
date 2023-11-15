@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   operations_p.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabat <mrabat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: martincelavie <martincelavie@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:21:29 by mrabat            #+#    #+#             */
-/*   Updated: 2023/11/15 15:21:31 by mrabat           ###   ########.fr       */
+/*   Updated: 2023/11/15 16:12:24 by martincelav      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 void	ft_p(t_swap **p1, t_swap **p2)
 {

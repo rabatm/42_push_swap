@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ftcostutils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabat <mrabat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: martincelavie <martincelavie@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:19:57 by mrabat            #+#    #+#             */
-/*   Updated: 2023/11/15 15:19:59 by mrabat           ###   ########.fr       */
+/*   Updated: 2023/11/15 16:11:42 by martincelav      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 void	ft_cacul_cost(t_swap *my_swap, int swap_size)
 {
