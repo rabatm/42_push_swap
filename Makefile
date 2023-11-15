@@ -6,52 +6,60 @@ YELLOW = \033[0;93m
 BLUE = \033[0;94m
 
 NAME = push_swap
-CHK = checker
 
-# Dossiers
-SRCDIR = sources
-OBJDIR = obj
-PSSOURCES = sources/push_swap/main.c
-CHKSOURCES = sources/checker/main.c
-INCLUDEDIR = includes
-LIBFTDIR = includes/libft
-TESTDIR = test
-
-# Compilateur et options
+# Compilater and options
 CC = gcc
 CFLAGS = -g -Wall -Werror -Wextra -g
 
-# Noms des fichiers
+# FOLDERS
+SRCDIR = sources
+OBJDIR = obj
+PSSOURCES = $(SRCDIR)/push_swap
+CHKSOURCES = $(SRCDIR)/checker
+OPSOURCES = $(SRCDIR)/operations
+LSTSOURCES = $(SRCDIR)/lst
+SRTSOURCES = $(SRCDIR)/sortfunc
+INCLUDEDIR = includes
+LIBFTDIR = includes/libft
+
+#files for operations
+SRCOP = $(OPSOURCES)/operations.c $(OPSOURCES)/operations_p.c \
+$(OPSOURCES)/operations_r.c $(OPSOURCES)/operations_rr.c
+
+#files for lst
+SRCLST = $(LSTSOURCES)/ftcostutils.c $(LSTSOURCES)/ftsort100.c \
+$(LSTSOURCES)/ft_sort100_u.c $(LSTSOURCES)/ftsort100_utils.c \
+$(LSTSOURCES)/ftsort3.c $(LSTSOURCES)/ftsort.c \
+$(LSTSOURCES)/ftturksor.c
+
+#file for sortfunctions
+SRCSRT = $(SRTSOURCES)/ftcostutils.c $(SRTSOURCES)/ftsort100.c $(SRTSOURCES)/ft_sort100_u.c \
+$(SRTSOURCES)/ftsort100_utils.c $(SRTSOURCES)/ftsort3.c $(SRTSOURCES)/ftsort.c \
+$(SRTSOURCES)/ftturksort.c
+
+#files for push_swap
+PSSRCS = $(SRCOP) $(SRCLST) $(SRCSRT) $(PSSOURCES)/main.c
+
+# files name
 LIBFT = $(LIBFTDIR)/libft.a
 
 # Fichiers sources et objets
-SRC = $(wildcard $(SRCDIR)/*.c)
-OBJ = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
+OBJPS = $(PSSRCS:.c=.o)
 
 # Règle par défaut
 all: $(NAME)
 
 # Règle de construction de l'exécutable
-$(NAME): $(LIBFT) $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PSSOURCES) -o $(NAME)
+$(NAME): $(LIBFT) $(OBJPS)
+	$(CC) $(CFLAGS) $(OBJPS) $(LIBFT)  -o $(NAME)
 	@echo "$(BLUE)$(NAME) READY IN BIN FOLDER$(DEF_COLOR)"
 
-# Règle de construction de l'exécutable
-$(CHK): $(NAME)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(CHKSOURCES) -o $(CHK)
-	@echo "$(BLUE)$(CHK) READY IN BIN FOLDER$(DEF_COLOR)"
 
 # Règle de compilation des fichiers objets
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
+$(OBJDIR)/%.o: $(PSSRCS)
 	$(shell mkdir -p $(OBJDIR))
 	$(CC) $(CFLAGS) -c $< -o $@
 	@echo "$(YELLOW)OBJ CREATED$(DEF_COLOR)"
-
-# Règle de construction des fichiers de test
-$(OBJDIR)/%.o: $(TESTDIR)/%.c
-	$(shell mkdir -p $(OBJDIR))
-	$(CC) $(CFLAGS) $(TEST_CFLAGS) -c $< -o $@
-	@echo "$(YELLOW)TEST OBJ CREATED$(DEF_COLOR)"
 
 # Règle de construction de la bibliothèque libft.a
 $(LIBFT):
@@ -73,9 +81,4 @@ fclean: clean
 # Règle de recompilation complète
 re: fclean all
 
-watch:
-	@echo "$(BLUE)Watching for changes...$(DEF_COLOR)"
-	./run.sh
-	fswatch -r $(SRCDIR) $(INCLUDEDIR) | xargs -n1 -I{} ./run.sh
-
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re
