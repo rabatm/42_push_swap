@@ -1,33 +1,4 @@
-#include "../includes/push_swap.h"
-
-void	prtlst_basic(t_swap *stark)
-{
-	while (stark)
-	{
-		printf("%d\n", stark->num);
-		stark = stark->next;
-	}
-}
-
-void	prtlst(t_swap *stark)
-{
-	while (stark)
-	{
-		printf("num : %d cost : %d dest : %d costtotal : %d\n", stark->num,
-			stark->mycost, stark->new_post->num,
-			(stark->new_post->mycost + stark->mycost));
-		stark = stark->next;
-	}
-}
-
-void	prtlst_a(t_swap *stark)
-{
-	while (stark)
-	{
-		printf("num : %d mycost : %d\n", stark->num, stark->mycost);
-		stark = stark->next;
-	}
-}
+#include "../../includes/push_swap.h"
 
 t_head	*get_args_to_init(char *argv[], int argc, t_head *t_stark)
 {
@@ -50,6 +21,7 @@ t_head	*get_args_to_init(char *argv[], int argc, t_head *t_stark)
 int	main(int argc, char *argv[])
 {
 	t_head	*t_stark;
+	char	*line;
 
 	if (argc < 2)
 		exit (0);
@@ -58,7 +30,14 @@ int	main(int argc, char *argv[])
 		ft_prterror_quit();
 	t_stark = get_args_to_init(argv, argc, t_stark);
 	ft_error_gest(t_stark);
-	ft_sort(&t_stark);
+	
+	line = get_next_line(0, 0);
+	while(line)
+	{
+		printf("ln %s", line);
+		free(line);
+		line = get_next_line(0, 0);
+	}
 	ft_destroy_lst(t_stark->head_a);
 	ft_destroy_lst(t_stark->head_b);
 	free(t_stark);

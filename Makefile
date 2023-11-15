@@ -6,10 +6,13 @@ YELLOW = \033[0;93m
 BLUE = \033[0;94m
 
 NAME = push_swap
+CHK = checker
 
 # Dossiers
 SRCDIR = sources
 OBJDIR = obj
+PSSOURCES = sources/push_swap/main.c
+CHKSOURCES = sources/checker/main.c
 INCLUDEDIR = includes
 LIBFTDIR = includes/libft
 TESTDIR = test
@@ -30,8 +33,13 @@ all: $(NAME)
 
 # Règle de construction de l'exécutable
 $(NAME): $(LIBFT) $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PSSOURCES) -o $(NAME)
 	@echo "$(BLUE)$(NAME) READY IN BIN FOLDER$(DEF_COLOR)"
+
+# Règle de construction de l'exécutable
+$(CHK): $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(CHKSOURCES) -o $(CHK)
+	@echo "$(BLUE)$(CHK) READY IN BIN FOLDER$(DEF_COLOR)"
 
 # Règle de compilation des fichiers objets
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
